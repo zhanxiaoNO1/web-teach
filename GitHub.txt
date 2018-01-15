@@ -1,0 +1,32 @@
+git init 初始化仓库
+
+设置全局提交人信息
+git config --global user.name "00-zhanxiao" 
+git config --global user.email myEmail@example.com
+
+设置远端仓库提交地址
+git remote add origin https://github.com/zhanxiaoNO1/web-teach.git
+
+从远端仓库down文件
+git pull origin master
+
+查看现有分支
+git branch
+
+新建分支
+git branch (分支名)
+
+切换分支
+git checkout （分支名）
+
+查看本地仓库现有文件状态
+git status
+
+向本地仓库添加缓存（缓存所有文件）
+git add -A
+git add (文件名) 缓存单独文件
+
+提交文件
+git commit -m "注释内容"（带引号）
+
+git push origin master
