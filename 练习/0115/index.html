@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+	</head>
+	<body ng-app="">
+		<input type="number" ng-model="num1"/>
+		<span>+</span>
+		<input type="number" ng-model="num2"/>
+		<br /><br />
+		这是第一个输入框的值：{{num1}}
+		<br />
+		这是第二个输入框的值：{{num2}}
+		<br />
+		{{"它们的和："+(num1+num2)}}
+	</body>
+</html>
+<script>
+	var app = angular.module("myapp",[]);
+	app.controller("mycontroller",function($scope,$){
+		
+	})
+</script>
