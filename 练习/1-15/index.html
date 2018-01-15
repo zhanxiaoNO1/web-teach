@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCont">
+		<input type="number" ng-model="num1" />
+		<span>+</span>
+		<input type="number" ng-model="num2" />
+		<br />
+		{{num1}}
+		<br />
+		{{num2}}
+		<br />
+		得出结果：{{num1+num2}}
+	</body>
+	<script>
+		var app = angular.module("myApp",[]);
+			app.controller("myCont",function($scope){
+				$scope.num1 = 1;
+				$scope.num2 = 2;
+			})
+	</script>
+</html>
