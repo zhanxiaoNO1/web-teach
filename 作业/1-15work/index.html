@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCont">
+		<input type="number" ng-model="num1" /><input type="button" ng-click="ck()" value="Click Me" />
+		<br />
+		现在的username是:<span></span><input ng-click="nm(1)" name="user" type="radio" />张三<input ng-click="nm(2)" type="radio" name="user" />李四<input ng-click="nm(3)"input type="radio" name="user" />王五
+		<br />
+		检查状态：<span></span><input type="checkbox" ng-click="jc()" ng-model="zt" />
+	</body>
+	<script>
+		var spa = document.getElementsByTagName("span")[0];
+		var spaTwo = document.getElementsByTagName("span")[1];
+		var app = angular.module("myApp",[]);
+			app.controller("myCont",function($scope){
+				$scope.ck = function(){
+					alert($scope.num1+1)
+				}
+				
+				$scope.nm = function(n){
+					n==1?spa.innerHTML = "张三":n==2?spa.innerHTML = "李四":spa.innerHTML = "王五";
+				}
+				
+				$scope.jc = function(){
+					spaTwo.innerHTML = $scope.zt
+				}
+			})
+	</script>
+</html>
