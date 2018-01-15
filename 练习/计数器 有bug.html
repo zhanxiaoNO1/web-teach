@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="mycall">
+		<input type="number" ng-model="num1"/>
+		<span>+</span>
+		<input type="number" ng-model="num2"/>
+		<br />
+		这是第一个输入框的内容：{{num1}}
+		<br />
+		这是第二个输入框的内容：{{num2}}
+		<br />
+		这是两个输入框的内容和:{{num1+num2}}
+		<script>
+			var app = augular.module("myApp",[]);
+			app.controller("mycall",function($scope){
+				var sec = 2;
+				$scope.num1 = 1;
+				$scope.num2 = sec;
+			})
+		</script>
+	</body>
+</html>
