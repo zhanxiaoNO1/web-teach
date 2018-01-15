@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.11.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body ng-controller="trl" ng-app="myApp">
+		<input type="number" ng-model="num1" />
+		<input type="button" value="click me" ng-click="dj()" />
+		<br />检查状态：
+		<span id="a">
+			{{$scope.res}}
+		</span>
+		<input type="checkbox" ng-click="show()" ng-model="res" />
+	</body>
+	<script type="text/javascript">
+		var app = angular.module("myApp", []);
+		app.controller("trl", function($scope) {
+			//第一题
+			$scope.dj = function() {
+				alert($scope.num1 + 1)
+			}
+			
+//			第三题
+            var a = document.getElementById("a");
+			$scope.show = function(){
+           a.innerHTML=$scope.res;
+			}
+		})
+	</script>
+</html>
