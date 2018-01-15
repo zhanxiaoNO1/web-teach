@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.min.js"></script>
+	</head>
+	<body ng-app="a" ng-controller="b">
+		<input type="number" ng-model="num"/>
+		
+	</body>
+</html>
+<script>
+	var aa=document.getElementsByTagName("input")[0];
+	aa.onchange=function(){
+		var cc=aa.value;
+	var bb=Number(cc)+1;
+		alert(bb)
+	}
+	
+</script>
