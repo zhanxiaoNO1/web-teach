@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/jquery-1.12.4.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="Ctrl">
+		题目1：
+		<input type="number" ng-model="num1">
+		<button id="cik">点击</button>
+		<br/>
+		题目2：
+		{{num0}}
+		<input type="radio" ng-model="num0" value="张三">张三
+	    <input type="radio" ng-model="num0" value="李四">李四
+		<input type="radio" ng-model="num0" value="王五">王五
+		<br />
+		题目3：
+		{{num2}}
+		<input type="checkbox" ng-model="num2">
+	</body>
+	<script>
+		var app=angular.module("myApp",[])
+		var cik=document.querySelector("#cik")
+		app.controller("Ctrl",function($scope){
+			cik.onclick=function(){
+				alert($scope.num1+1)
+			}
+		})
+		
+	</script>
+</html>
