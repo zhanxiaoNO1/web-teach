@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myapp" ng-controller="wsw">
+ 			<input type="number" ng-model="num1" />
+ 			<span>+</span>
+ 			<input type="number" ng-model="num2" /> {{num1+num2}}
+ 			<br />
+ 			<input type="number" ng-model="num3" />
+ 			<input type="submit" ng-model="num4"/>
+ 			{{num5}}
+ 			<br />
+ 			<input type="radio" ng-model="num5" />张三
+ 			<input type="radio" ng-model="num5" />李四
+ 			<input type="radio" ng-model="num5" />王大
+ 			<br />
+ 			<input type="checkbox" ng-model="num6" />
+ 			{{num6}}
+ 		</div>
+	</body>
+</html>
