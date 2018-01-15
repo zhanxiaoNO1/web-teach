@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="cope/angular.min.js"></script>
+	</head>
+
+	<body ng-app="">
+
+		<form>
+			现在的usename是:
+			<input type="radio" ng-model="myVar" value="num1">张三
+			<input type="radio" ng-model="myVar" value="num2">李四
+			<input type="radio" ng-model="myVar" value="num3">王五
+		</form>
+
+		<div ng-switch="myVar">
+			<div ng-switch-when="num1">
+				<h1>张三</h1>
+			</div>
+			<div ng-switch-when="num2">
+				<h1>李四</h1>
+			</div>
+			<div ng-switch-when="num3">
+				<h1>王五</h1>
+			</div>
+		</div>
+		<!--<p>ng-switch 指令根据单选按钮的选择结果显示或隐藏 HTML 区域。</p>-->
+	</body>
+
+</html>

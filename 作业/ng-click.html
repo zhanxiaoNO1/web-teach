@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="cope/angular.min.js"></script>
+	</head>
+
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<input type="number" ng-model="num1" />
+			<button ng-click="num1= num1+1">click me</button>
+			<p>{{num1}}</p>
+		</div>	
+		<script>
+		var app = angular.module('myApp',[]); 
+		app.controller('myCtrl',function($scope){ 
+			$scope = 'num1'; 
+		});
+		</script>
+	</body>
+
+</html>
