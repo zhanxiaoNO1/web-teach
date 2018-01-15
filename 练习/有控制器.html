@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--引入本地angular-->
+		<script src="cope/ionic-angular.min.js"></script>		
+	</head>
+
+	<body>
+		<!--ng-app="模块名"; ng-controller="控制器名"-->
+		<div ng-app="myApp" ng-controller="customersCtrl">
+			<input type="number" ng-model="num1" />
+			<input type="number" ng-model="num2" />
+			<p>
+				{{name}}
+			</p>
+		</div>
+		<div ng-app="myApp1" ng-controller="customersCtrl1">
+			<p>你输入的为： {{ num1 }}</p>
+			<p>你输入的为： {{ num2 }}</p>
+			<p>你输入的为： {{ num1+num2 }}</p>
+		</div>
+		
+		<!--ng-app声明angular的作用域;
+		ng-controller声明了该控制器的作用域;
+		作用域：代码生效的区域-->
+		<script>
+			//声明模块方法：angular.module('模块名', []数组，注入其他依赖模块)
+			var app = angular.module('myApp', []);
+			//创建控制器方法：模块.controller('控制器名'，function(要注入的服务){})
+			app.controller('customersCtrl', function($scope){
+				//声明一个可在页面连通的变量$scope.变量名
+				//$scope相当于一个数据仓库
+				//声明一个仅在控制器内部使用的变量，可直接var
+				
+				var name ={
+					age:19,sex:女
+				}
+				$scope.name ="萱萱";
+				$scope.name1 = $scope.name
+				
+			});
+			
+			var app1. = angular.module('myApp1',[]);
+			app1.controller('customersCtrl1',function(){
+				$scope.name =
+			});
+			
+		</script>
+
+	</body>
+
+</html>

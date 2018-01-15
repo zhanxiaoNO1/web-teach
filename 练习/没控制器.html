@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="cope/angular.min.js"></script>
+	</head>
+
+	<!--<body ng-app="myApp" ng-controller="myCtrl">-->  
+	<body ng-app="">
+		<!--初始化数据的方式-->
+		<!--ng-init="num1=2;num2=4"-->			
+		<input type="number" ng-model="num1"/>
+		<span>+</span>
+		<input type="number" ng-model="num2"/>
+		<!--ng-model是用来双向绑定的指令-->
+		<p>一个输入框的值：{{num1}}</p>
+		<p>另一个输入框的值：{{num2}}</p>
+		<p>输入框值的和：{{num1+num2}}</p>
+		<!--<p>{{"输入框值的和："+(num1+num2)}}</p>-->
+	</body>
+	<script>
+//		var app = angular.model('myApp',[]);
+//		app.controller("myCtrl",function($scope){
+//			var sec = 5;
+//			$scope.num1 = 2;
+//			$scope.num2 = sec;
+//		});
+	</script>
+</html>
