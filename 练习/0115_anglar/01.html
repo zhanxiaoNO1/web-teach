@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="js/jquery-1.12.4.js"></script>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myapp" ng-controller="mycontroller">
+		<input type="number" ng-model="num1"/>
+		<span>+</span>
+		<input type="number" ng-model="num2"/>
+		<span ng-click="num1+num2"></span>
+	</div>
+</body>
+</html>
+<script>
+	var app = angular.module("myapp",[]);
+	app.controller("mycontroller",function($scope,$){
+		
+	})
+</script>
