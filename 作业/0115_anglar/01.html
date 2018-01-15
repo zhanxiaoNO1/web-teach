@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="">
+		<input type="number" value="" id="a"/>
+		<input type="button" value="click me" id="b"/>
+		<br />
+		现在的username是：
+		<span>张三</span>
+		<span>李四</span>
+		<span>王五</span>
+		<form action="">
+			<input type="radio" name="a"/>张三
+			<input type="radio" name="a"/>李四
+			<input type="radio" name="a"/>王五
+		</form>
+		
+		<span>检查状态：</span>
+		false<input type="checkbox" ng-model="show"/>
+		<div ng-show="show">false</div>
+		<div ng-hide="show">true</div>
+	</div>
+	
+	<script>
+		var a = document.getElementById("a");
+		var	b = document.getElementById("b");
+		b.onclick = function(){
+			var value = a.value-0;
+			alert(value+1)
+		}
+	</script>
+	
+</body>
+</html>

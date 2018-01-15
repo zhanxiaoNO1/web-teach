@@ -3,21 +3,15 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
-	<script src="js/jquery-1.12.4.js"></script>
 	<script src="js/angular.min.js"></script>
 </head>
 <body>
-	<div ng-app="myapp" ng-controller="mycontroller">
+	<div ng-app>
 		<input type="number" ng-model="num1"/>
 		<span>+</span>
 		<input type="number" ng-model="num2"/>
-		<span ng-click="num1+num2"></span>
+		<input type="button" ng-click="result=num1+num2"/>
+		<input type="number" ng-model="result"/>
 	</div>
 </body>
 </html>
-<script>
-	var app = angular.module("myapp",[]);
-	app.controller("mycontroller",function($scope,$){
-		
-	})
-</script>
