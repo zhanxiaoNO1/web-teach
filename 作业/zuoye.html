@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<scriptsrc="../cope/angular.min.js">
+			</script>
+	</head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		li {
+			list-style-type: none;
+		}
+		
+		img {
+			width: 200px;
+			height: 200px;
+		}
+		
+		#qq {
+			width: 220px;
+			float: left;
+			border: 1px solid black;
+		}
+		
+		.da {
+			width: 450px;
+		}
+		
+		.biaoti {
+			text-align: center;
+			border: 1px solid black;
+		}
+	</style>
+
+	<body>
+		<div ng-app="myapp" ng-controller="ctrl">
+			<li ng-repeat="x in data">
+				{{x.name}} {{x.age}}
+			</li>
+			<div class="da">
+				<div class="biaoti">标题</div>
+				<li ng-repeat="x in shangpin">
+					<div id="qq">
+
+						<img src={ {x.pic}}> 名字{{x.name}} 价格{{x.age}}
+					</div>
+				</li>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>
+<script>
+	var app = angular.module("myapp", [])
+	app.controller("ctrl", function($scope) {
+		$scope.data = [{
+			name: "11",
+			age: "12"
+		}, {
+			name: "12",
+			age: "11"
+		}]
+		$scope.shangpin = [{
+			pic: "img/06.jpg",
+			name: "11",
+			age: "$12"
+		}, {
+			pic: "img/07.jpg",
+			name: "12",
+			age: "$11"
+		}, {
+			pic: "img/08.jpg",
+			name: "12",
+			age: "$11"
+		}, {
+			pic: "img/09.jpg",
+			name: "12",
+			age: "$11"
+		}]
+	})
+</script>
