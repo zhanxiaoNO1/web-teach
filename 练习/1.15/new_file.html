@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script src="jquery-1.12.4.js"></script>
+	</head>
+	<body>
+		<div ng-app="myapp" ng-controller="ctrl">
+			<input type="number" ng-model="num1"/>+
+			<input type="number" ng-model="num2"/>
+			<br />
+			one:{{num1}}
+			two:{{num2}}
+			three:{{num1+num2}}
+			<br />
+			<input type="number" ng-model="num3"/><button id="dian">出来</button>
+			<div>
+				{{num4}}
+			</div>			<input type="radio" name="name" ng-model="num4" value="张三">张三
+			<input type="radio" name="name" ng-model="num4" value="李四">李四
+			<input type="radio" name="name" ng-model="num4" value="王五">王五<br />
+			<input type="checkbox" ng-model="num7">
+			<div>
+				{{num7}}
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	var app=angular.module("myapp",[]),
+		dian=document.querySelector("#dian")
+		app.controller("ctrl",function($scope){
+		dian.onclick=function(){
+		alert($scope.num3+1)
+		}
+		
+		})
+		
+</script> 
