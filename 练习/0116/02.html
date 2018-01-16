@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="zhangsan" ng-controller="myCon">
+		<div>
+			<span>你猜</span>
+			<span>{{firstName}}</span>
+		</div>
+		<div>
+			<span>你猜</span>
+			<ul>
+				<li>{{lastName[0]}}</li>
+				<li>{{lastName[1]}}</li>
+				<li>{{lastName[2]}}</li>
+			</ul>
+		</div>
+	</div>
+	<div ng-app="lisi" id="b" ng-controller="myCon">
+		<div>
+			<span>你猜</span>
+			<span>{{firstName}}</span>
+		</div>
+		<div>
+			<span>你猜</span>
+			<ul>
+				<li>{{lastName[0]}}</li>
+				<li>{{lastName[1]}}</li>
+				<li>{{lastName[2]}}</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		var app1 = angular.module("zhangsan",[]);
+		app1.controller("myCon",function($scope){
+			$scope.firstName = '张';
+			$scope.lastName = [
+				"三","四","五"
+			]
+		})
+		var app2 = angular.module("lisi",[]);
+		app2.controller("myCon",function($scope){
+			$scope.firstName = '李';
+			$scope.lastName = [
+				"三","四","五"
+			]
+		})
+		angular.bootstrap(document.getElementById("b"),['lisi'])
+		/*var app1 = angular.module("zhangsan",[]);
+		app1.controller("myCon",function($scope){
+			$scope.firstName = "00000";
+			$scope.lastName = [
+				"11111","22222","33333"
+			]
+		})
+		var app2 = angular.module("lisi",[]);
+		app2.controller("myCon",function($scope){
+			$scope.firstName = "00000";
+			$scope.lastName = [
+				"11111","22222","33333"
+			]
+		})
+		var b = document.getElementById("b");
+		angular.bootstrap(b,["lisi"]);*/
+	</script>
+</body>
+</html>

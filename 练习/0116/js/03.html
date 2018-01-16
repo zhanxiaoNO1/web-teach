@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app="a" ng-controller="b">
+	<ul >
+		<li ng-repeat="x in date">
+			name--{{x.name}},
+			age--{{x.age}}
+		</li>
+	</ul>
+	<script>
+	var a = angular.module("a",[]);
+	a.controller("b",function($scope){
+		$scope.date = [
+			{
+				name:"11",
+				age:"12"
+			},
+			{
+				name:"13",
+				age:"14"
+			}
+		]
+	})
+	</script>
+</body>
+</html>

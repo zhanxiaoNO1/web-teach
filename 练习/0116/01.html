@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCon">
+	家族姓氏{{firstName}}
+	<br />
+	成员姓名
+	<ul>
+		<li ng-bind="firstName"></li><span>{{lastName[0]}}</span>
+		<li ng-bind="firstName"></li><span>{{lastName[1]}}</span>
+		<li ng-bind="firstName"></li><span>{{lastName[2]}}</span>
+	</ul>
+	<input type="text" ng-model="firstName"/>
+	<script>
+		var app = angular.module("myApp",[]);
+		app.controller("myCon",function($scope){
+			var names = [
+				"1111","2222","3333"
+			]
+			$scope.firstName ="0";
+			$scope.lastName = names
+		})
+	</script>
+</body>
+</html>

@@ -4,36 +4,48 @@
 	<meta charset="UTF-8" />
 	<title>Document</title>
 	<script src="js/angular.min.js"></script>
-</head>
-<body>
-	<div ng-app="">
-		<input type="number" value="" id="a"/>
-		<input type="button" value="click me" id="b"/>
-		<br />
-		现在的username是：
-		<span>张三</span>
-		<span>李四</span>
-		<span>王五</span>
-		<form action="">
-			<input type="radio" name="a"/>张三
-			<input type="radio" name="a"/>李四
-			<input type="radio" name="a"/>王五
-		</form>
-		
-		<span>检查状态：</span>
-		false<input type="checkbox" ng-model="show"/>
-		<div ng-show="show">false</div>
-		<div ng-hide="show">true</div>
-	</div>
-	
-	<script>
-		var a = document.getElementById("a");
-		var	b = document.getElementById("b");
-		b.onclick = function(){
-			var value = a.value-0;
-			alert(value+1)
+	<style>
+		.aa{
+			border: 3px solid #fff;
 		}
+		.bb{
+			border: 3px solid #f00;
+		}
+	</style>
+</head>
+<body ng-app="a" ng-controller="b">
+	<table ng-class="aa">
+		<tr ng-class="bb">
+			<th colspan="2">
+				标题主页
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<div ng-repeat="x in result">{{x}}</div>
+			</td>
+			<td>
+				<div ng-repeat="x in result">{{x}}</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div ng-repeat="x in result">{{x}}</div>
+			</td>
+			<td>
+				<div ng-repeat="x in result">{{x}}</div>
+			</td>
+		</tr>
+	</table>
+	<script>
+		var a = angular.module("a",[]);
+		a.controller("b",function($scope){
+			$scope.result = [
+				"<img src=''img/21.jpg>",
+				"1111111",
+				"2222222"
+			]
+		})
 	</script>
-	
 </body>
 </html>
