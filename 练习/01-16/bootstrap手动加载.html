@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../cope/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<h1>年龄：{{name1}}</h1>
+			<input type="text" ng-model="name1" />
+		</div>
+		
+		<div ng-app="myApp2" id="myApp2" ng-controller="myCtrl">
+			<h1>年龄：{{name2}}</h1>
+			<input type="text" ng-model="name2" />
+		</div>
+	</body>
+	<script>
+		//声明angular模块
+		var app = angular.module('myApp',[]);
+		app.controller('myCtrl',function($scope){
+			$scope.name1 =1;
+		});
+		
+		var app2 =angular.module('myApp2',[]);
+		app2.controller('myCtrl',function($scope){
+			$scope.name2 =2;
+		});
+		//
+		//bootstrap第一个参数：获取的DOM；第二个参数：注入要加载的模块
+		angular.bootstrap(document.getElementById("myApp2"),["myApp2"]);
+	</script>
+</html>
