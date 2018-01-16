@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+	</head>
+	<body ng-app="" ng-init='names=[{
+		name:"11",
+		age:12,
+	},
+	{
+		name:"12",
+		age:11,
+	}]'>
+		<ul>
+			<li ng-repeat="x in names">
+				name--{{x.name}},age--{{x.age}}
+			</li>
+		</ul>
+	</body>
+</html>
