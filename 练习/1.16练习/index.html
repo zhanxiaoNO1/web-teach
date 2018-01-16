@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body >
+		家族姓氏：{{firstName}}
+		<span></span>
+	家族姓名：
+	<ul>
+		<li>
+			<span ng-bind="firstName" ></span>
+			<span>{{lastName[0]}}</span>
+		</li>
+		<li>
+			<span ng-bind="firstName" ></span>
+			<span>{{lastName[1]}}</span>
+		</li>
+		<li>
+			<span ng-bind="firstName" ></span>
+			<span>{{lastName[2]}}</span>
+		</li>
+	</ul>
+	<div ng-app="myApp" ng-controller="myCtrl">
+		<h1>{{carname}}</h1>
+	</div>
+	<div id="myApp2" ng-app="myApp2" ng-controller="myCtrl">
+		<h1>{{carname}}</h1>
+	</div>
+	<input type="text" ng-model="firstName"/>
+	<input type="text" ng-model="lastName" ng-chang="show()"/>
+	</body>
+</html>
+<script >
+//	var app = angular.module("myApp",[]);
+//	app.controller("myCtrl" ,function($scope){
+//		var names = [
+//		"dan","ri","yue"
+//		]
+//		$scope.firstName = "joe"
+//		$scope.lastName = names;
+//	
+//	});
+//	show;
+	var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.carname = "Volvo";
+});
+	
+	var app2 = angular.module("myApp2",[]);
+	app2.controller("myCtrl",function($scope){
+		$scope.carname = "你好";
+	});
+	
+	angular.bootstrap(document.getElementById("myApp2"),["myApp2"])
+</script>
