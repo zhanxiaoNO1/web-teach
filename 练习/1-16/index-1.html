@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<ul>
+				<li>
+					<span>{{firstName}}</span>
+					<span ng-bind="lastName"></span>
+				</li>
+			</ul>
+			<input type="text" ng-model="firstName" />
+		</div>
+		<div id="myApp2" ng-app="myApp2" ng-controller="myCtrl2">
+			<ul>
+				<li>
+					<span>{{firstName}}</span>
+					<span ng-bind="lastName"></span>
+				</li>
+			</ul>
+			<input type="text" ng-model="firstName" />
+		</div>
+	</body>
+	<script>
+		var app = angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope){
+				$scope.firstName = "hhh"
+			})
+		var app2 = angular.module("myApp2",[])
+			app2.controller("myCtrl2",function($scope){
+				$scope.firstName = "sss"
+			})
+			
+			angular.bootstrap(document.getElementById("myApp2"),["myApp2"]);
+	</script>
+</html>

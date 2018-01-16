@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCrtl">
+		<ul>
+			<li>
+				<span>{{lastName[0]}}</span>
+				<span ng-bind="firstName"></span>
+			</li>
+			<li>
+				<span>{{lastName[1]}}</span>
+				<span ng-bind="firstName"></span>
+			</li>
+			<li>
+				<span>{{lastName[2]}}</span>
+				<span ng-bind="firstName"></span>
+			</li>
+		</ul>
+		<input type="text" ng-model="firstName" />
+		<input type="text" ng-model="lastName" ng-change="show()" />
+	</body>
+	<script>
+		var app = angular.module("myApp",[]);
+			app.controller("myCrtl",function($scope){
+				$scope.firstName = "call";
+				
+				var name = [
+					"one","two","three"
+				]
+				
+				$scope.lastName = name;
+				
+			})
+	</script>
+</html>
