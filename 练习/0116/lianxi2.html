@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="app" ng-controller="con">
+		<ul>
+			<li ng-repeat="x in names">
+			<span>
+				name--{{x.name}}
+				age--{{x.age}}
+				
+			</span>	
+				
+			</li>
+		</ul>
+	</body>
+</html>
+<script>
+	var app= angular.module("app",[]);
+	app.controller("con",function($scope){
+		$scope.names=[{"name":"xu","age":18},{"name":"shi","age":19}]
+		
+	})
+</script>

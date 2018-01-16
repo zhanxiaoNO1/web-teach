@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js">
+			
+		</script>
+	</head>
+	<body>
+		<ul id="myApp1" ng-app="myApp1" ng-controller="myCon" >
+			<li>
+				<span ng-bind="firstName"></span>
+				<span >{{lastName[0]}}</span>
+			</li>
+			<li>
+				<span ng-bind="firstName"></span>
+				<span >{{lastName[0]}}</span>
+			</li>
+		</ul>
+		
+		
+		<ul id="myApp2" ng-app="myApp2" ng-controller="myCon2">
+			<li>
+				<span ng-bind="firstName"></span>
+				<span >{{lastName[1]}}</span>
+			</li>
+			<!--<li>
+				<span ng-bind="firstName"></span>
+				<span >{{lastName[1]}}</span>
+			</li>-->
+		</ul>
+	</body>
+</html>
+<script>
+	var app1=angular.module("myApp1",[]);
+	
+	app1.controller("myCon",function($scope){
+	
+		var name=["xu","jian","shi"];
+		$scope.firstName="jor"
+		$scope.lastName=name
+		
+	});
+	
+	
+	var app2=angular.module("myApp2",[]);
+	app2.controller("myCon2",function($scope){
+				
+		var name=["xu","jian","shi"];
+		$scope.firstName="jor"
+		$scope.lastName=name
+		
+	});
+	
+//	angular.bootstrap(document.getElementById("#myApp1"),["myApp1"]);
+	angular.bootstrap(document.getElementById("#myApp2"),["myApp2"]);
+</script>

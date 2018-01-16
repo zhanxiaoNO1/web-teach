@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/angular.min.js">
+			
+		</script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCon">
+		<ul>
+			<li>
+				<span ng-bind="firstName"></span>
+				<span >{{lastName[0]}}</span>
+			</li>
+			<li>
+				<span ng-bind="firstName"></span>
+				<span >{{lastName[1]}}</span>
+				
+			</li>
+			<li>
+				<span ng-bind="firstName"></span>
+				<span >{{lastName[2]}}</span>
+			</li>
+		</ul>
+		<input type="text" ng-model="firstName" />
+		<input type="text" ng-model="lastName" ng-change='show()' />
+	</body>
+</html>
+<script>
+	var app=angular.module("myApp",[]);
+	app.controller("myCon",function($scope){
+		$scope.firstName="jor"
+		
+		var name=["xu","jian","shi"];
+
+		$scope.lastName=name
+	})
+</script>

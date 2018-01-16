@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+	</head>
+
+	<body ng-app="app" ng-controller="con">
+		<div class="container-fluid">
+			<ul class="row">
+				<li ng-repeat="x in arr" class="col-sm-6 col-md-6 col-lg-6" ng-style="{'width':'360px','height':'390px','border':'1px solid black','float':'left','margin':'40px'}">
+					<img src="img/Ncontact1.jpg" /><br />
+					<span>名称：</span>{{x.name}} <br />
+					<span>价格：</span>{{x.price}} <br />
+
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>
+<script>
+	var app = angular.module("app", []);
+	app.controller("con", function($scope) {
+		$scope.arr = [{
+				
+				name: "38客服",
+				price: 20
+			},
+			{
+				
+				name: "38客服",
+				price: 20
+			},
+			{
+				
+				name: "38客服",
+				price: 20
+			},
+			{
+				
+				name: "38客服",
+				price: 20
+			}
+		]
+	})
+</script>
