@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+
+	<body ng-app="myapp" ng-controller="myCtrl">
+		<p>家族姓氏为：{{firstName}}</p>
+		<span></span> 族员姓名为：
+		<ul>
+			<li>
+				<span ng-bind="firstName"></span>
+				<span>{{lastName[0]}}</span>
+			</li>
+			<li>
+				<span ng-bind="firstName"></span>
+				<span>{{lastName[1]}}</span>
+			</li>
+			<li>
+				<span ng-bind="firstName"></span>
+				<span>{{lastName[2]}}</span>
+			</li>
+		</ul>
+		<input type="text" ng-model="firstName" />
+		<input type="text" ng-model="lastName" />
+		<script>
+			var app = angular.module("myapp", []);
+			app.controller("myCtrl", function($scope) {
+				var names=[
+				"裴","吕","陈"
+				]
+				$scope.firstName = "王";
+				$scope.lastName = names;
+			})
+		</script>
+	</body>
+
+</html>
