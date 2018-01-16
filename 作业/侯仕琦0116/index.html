@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			.wai{
+				width: 400px;
+				height: 500px;
+				border: 1px solid black;
+			}
+			ul{
+				list-style: none;
+			}
+			ul li{
+				float: left;
+			}
+			img{
+				width: 100px;
+				height: 100px;
+			}
+			li{
+				width: 150px;
+				height: 110px;
+				margin: 20px 10px;
+				padding: 40px 0;
+				border: 5px solid orange;
+			}
+			h3{
+				border: 5px solid red;
+				padding: 0 150px 0;
+			}
+			img{
+				width: 150px;
+				height:100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wai">
+		<h3>商铺</h3>
+		<div ng-app="myapp" ng-controller="myCtrl">
+			<ul>
+				<li ng-repeat="x in names">
+					<img src={{x.pic}} />
+					<br />
+					名称：{{x.name}} 
+					<br />
+					价格：{{x.price}}
+				</li>
+			</ul>
+		</div>
+		</div>
+	</body>
+
+	<script>
+		var app = angular.module("myapp", [])
+		app.controller("myCtrl", function($scope) {
+			$scope.names = [{
+				pic: "img/1.jpg",
+				name: "商品1",
+				price: 11
+			}, {
+				pic: "img/1.jpg",
+				name: "商品2",
+				price: 22
+			}, {
+				pic: "img/1.jpg",
+				name: "商品3",
+				price: 33
+			}, {
+				pic: "img/1.jpg",
+				name: "商品4",
+				price: 44
+			}]
+		})
+	</script>
+
+</html>
