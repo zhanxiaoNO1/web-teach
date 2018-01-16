@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+	</head>
+	<body ng-app="myapp" ng-controller="myctrl">
+		<p>
+			水果排行榜为{{firstname}}
+			<span></span>
+			排名为：
+		</p>
+			<ul>
+				<li>
+					<span ng-bind="firstname"></span>
+					<span>{{lastname[0]}}</span>
+				</li>
+				<li>
+					<span ng-bind="firstname"></span>
+					<span>{{lastname[1]}}</span>
+				</li>
+				<li>
+					<span ng-bind="firstname"></span>
+					<span>{{lastname[2]}}</span>
+				</li>
+			</ul>
+		<input type="text" ng-model="firstname"/>
+		<input  type="text" ng-model="lastname" ng-change="show()"/>
+		<script>
+			var app = angular.module("myapp",[]);
+			app.controller("myctrl",function($scope){
+				var names = ["香蕉","苹果","梨子"];
+				$scope.firstname = "吃";
+				$scope.lastname = names;
+				$scope.show = function(){
+					console.log($scope.lastname)
+				}
+			})
+		</script>
+	</body>
+</html>

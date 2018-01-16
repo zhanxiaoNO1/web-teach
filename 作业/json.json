@@ -1,0 +1,22 @@
+{
+    "status": "请求成功",
+    "code": 200,
+    "data": {
+        "url": "img/0-.jpg",
+        "name": "jiajia",
+        "age": 15,
+    },{
+    	 "url": "img/1-.jpg",
+        "name": "mengmeng",
+        "age": 16,
+    },{
+    	 "url": "img/2-.jpg",
+        "name": "zhezhe",
+        "age": 17,
+    }.{
+    	 "url": "img/3-.jpg",
+        "name": "xixi",
+        "age": 18,
+    }
+
+}
