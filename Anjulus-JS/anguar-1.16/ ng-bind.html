@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular-1.15/js/angular.min.js"></script>
+	</head>
+	<body ng-app="myapp" ng-controller="myctrl">
+		家族姓氏：{{fristname}}
+		<span></span>
+		组员姓名：
+		<ul>
+			<li>
+				<span ng-bind="fristname"></span>
+				<span>{{lastname[0]}}</span>
+			</li>
+			<li>
+				<span ng-bind="fristname"></span>
+				<span>{{lastname[1]}}</span>
+			</li>
+			<li>
+				<span ng-bind="fristname"></span>
+				<span>{{lastname[2]}}</span>
+			</li>
+		</ul>
+		<input type="text" ng-model="fristname" />
+		<input type="text" ng-model="lastname[]" />
+		<script>
+			var app=angular.module("myapp",[]);
+			app.controller("myctrl",function ($scope){
+				
+				var names = ["wang","zhao","yu"];
+				
+				
+				$scope.fristname = "wssw";
+				
+				$scope.lastname = names;
+				
+				
+				
+			})
+			
+			
+		</script>
+	</body>
+</html>

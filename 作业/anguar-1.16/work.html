@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<style>
+			.box{
+				width:600px;
+				height:700px;
+				border:2px solid deepskyblue;
+			}
+			.top{
+				height:40px;
+				text-align: center;
+				line-height:40px;
+			}
+			.imagine{
+				width:200px;
+				height:200px;
+			}
+			ul{
+				width:600px;
+				height:600px;
+			}
+			ul>li{
+				list-style: none;
+				width:200px;
+                height:270px;
+                border:2px solid red;
+                float: left;
+                margin:20px 0 0 40px;
+            }
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="top"><h1>坚果</h1></div>
+			<ul ng-app="myApp" ng-controller="Ctrl">
+				<li ng-repeat="x in names">
+					<img class="imagine" src="{{x.a}}">
+					<span>名称：{{x.b}}</span><br />
+					<span>价格：￥{{x.c}}</span>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		var app=angular.module("myApp",[]);
+		app.controller("Ctrl",function($scope){
+			$scope.names=[
+			   {
+				   "a":"img/q1.jpg",
+			       "b":"核桃",
+			       "c":"998"
+			   },
+			   {
+			   	   "a":"img/q3.jpg",
+			       "b":"大核桃",
+			       "c":"1998"
+			   },
+			   {
+			   	   "a":"img/q4.jpg",
+			       "b":"新疆核桃",
+			       "c":"899"
+			   },
+			   {
+			   	   "a":"img/q7.jpg",
+			       "b":"陕西核桃",
+			       "c":"999"
+			   }
+			]
+		})
+	</script>
+</html>

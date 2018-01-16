@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+
+	<body>
+		<div ng-app="myapp" ng-controller="myctrl">
+			<h1>家族名为{{firstname}}</h1>
+			<script>
+				var app = angular.module("myapp", [])
+				app.controller("myctrl", function($scope) {
+					$scope.firstname = "zhang";
+				})
+			</script>
+		</div>
+		<div ng-app="myapp1" ng-controller="myctrl" id="myapp1">
+			<h1>家族名为{{firstname}}</h1>
+			<script>
+				var app1 = angular.module("myapp1", [])
+				app1.controller("myctrl", function($scope) {
+					$scope.firstname = "hu";
+				})
+			</script>
+		</div>
+		<div ng-app="myapp2" ng-controller="myctrl" id="myapp2">
+			<h1>家族名为{{firstname}}</h1>
+			<script>
+				var app1 = angular.module("myapp2", [])
+				app1.controller("myctrl", function($scope) {
+					$scope.firstname = "zhgu";
+				})
+			</script>
+		</div>
+		<script>
+			angular.bootstrap(document.getElementById("myapp1"), ["myapp1"])
+			angular.bootstrap(document.getElementById("myapp2"), ["myapp2"])
+		</script>
+	</body>
+
+</html>
