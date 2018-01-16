@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.one ,.three ,.two, .four{
+				float: right;
+			}
+		</style>
+		<script src="../js/angular.min.js"></script>
+	</head>
+	<body ng-app="" ng-init="names=[{color1:'green',color2:'black'},{color3:'yellow',color4:'blue'}
+	
+	
+	]">
+		<div class="bigbox" style="height: 600px;width: 400px;
+			background: red;margin: 0 auto;">
+			<span style="font-size: 50px;text-align: center;
+				width: 100%;height: 40px;margin-left: 130px;">颜色
+			</span>
+			<div class="one" ng-repeat="y in names"
+				style="width: 200px;height: 200px;background: green;">
+				color--{{y.color1}}
+			</div>
+			<div class="two" ng-repeat="y in names"
+				 style="width: 200px;height: 200px;background: black;">
+				color--{{y.color2}}
+			</div>
+			<div class="three" ng-repeat="y in names"
+				style="width: 200px;height: 200px;background: yellow;">
+				color--{{y.color3}}
+			</div>
+			<div class="four" ng-repeat="y in names"
+				style="width: 200px;height: 200px;background: blue;">
+				color--{{y.color4}}
+			</div>
+			
+		</div>
+		
+		
+	</body>
+</html>
