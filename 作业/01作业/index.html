@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+ 
+ 		<script src="js/jquery-1.12.4.js"></script>
+ 		<script src="js/angular.min.js"></script>
+	</head>
+ 
+ 	<body>
+		<div ng-app="myapp" ng-controller="ccc">
+ 			<input type="number" ng-model="num1" />
+ 			<span>+</span>
+ 			<input type="number" ng-model="num2" /> {{num1+num2}}
+ 			<br />
+ 			<input type="number" ng-model="num3" />
+ 			<input type="submit" ng-model="num4" id="dianji"/>
+ 			<br />	
+ 			{{num5}}
+ 			<input type="radio" ng-model="num5"  value="张三" />张三
+ 			<input type="radio" ng-model="num5" value="李四" />李四
+ 			<input type="radio" ng-model="num5"  value="王五"/>王五
+ 			<br />
+ 			<input type="checkbox" ng-model="num6" />
+ 			{{num6}}
+ 		</div>
+ 		<script>
+ 		var myapp = angular.module("myapp", [])
+ 			var dianji=document.querySelector("#dianji")
+			myapp.controller("ccc", function($scope) {
+ 				$scope.num1 = 1
+ 				$scope.num2 = 2
+ 				dianji.onclick=function(){
+ 					alert($scope.num3+1)
+ 				}				
+ 			})
+ 		</script>
+ 		
+ 
+ 	</body>
+ 
+ </html> 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/jquery-1.12.4.js"></script>
+	</head>
+	<body ng-app="acc" ng-controller="zxx">
+		<input type="number" ng-model="num1">
+		<span>+</span>
+		<input type="number" ng-model="num2">
+		{{num1+num2}}
+		<br />
+		<input type="number" ng-model="num3">
+		<button id="ck">点击</button>
+		<br />
+		{{num4}}
+		<input type="radio" ng-model="num4" value="张三">张三
+		<input type="radio" ng-model="num4" value="李四">李四
+		<input type="radio" ng-model="num4" value="王五">王五
+		<br />
+		{{da}}
+		<input type="checkbox" ng-model="da">
+	</body>
+	<script>
+		var aa=angular.module("acc",[])
+		var ck=document.querySelector("#ck")
+		aa.controller("zxx",function($scope){
+			$scope.num1=10
+			$scope.num2=1;
+			ck.onclick=function(){
+		        alert($scope.num3+1)
+			}
+		})
+	</script>
+</html>
