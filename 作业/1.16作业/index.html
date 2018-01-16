@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.contain{
+				width: 500px;
+				height: 500px;
+				margin: 50px auto;
+				border: 5px solid red;
+			}
+			.top{
+				width: 490px;
+				height: 50px;
+				border: 5px solid skyblue;
+				font-size: 30px;
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<div class="contain">
+			<div class="top">
+				卖车啦
+			</div>
+			<div class="bottom">
+			<ul>
+				<li ng-repeat = "x in date">
+					<img src="x.img" />
+					名称：{{x.Name}}
+					价格：{{x.Price}}
+				</li>
+			</ul>
+			</div>
+		</div>
+			
+	</body>
+</html>
+<script>
+ var app = angular.module("myApp", []);
+	 app.controller("myCtrl", function($scope) {
+    $scope.date = [
+       {	
+       		"img" :"img/RS3.jpg",
+            "Name" : "RS3",
+            "Price" : "60w"},
+        {
+        	"img" :"img/红色S7.jpg",
+            "Name" : "S7",
+            "Price" : "110w"},
+        {	
+        	"img" :"img/黄色R8.jpg",
+            "Name" : "R8",
+            "Price" : "230w"},
+        {	
+        	"img" :"img/蓝色TT.jpg",
+            "Name" : "TT",
+            "Price" : "50w"}
+    ]
+});
+
+</script>
