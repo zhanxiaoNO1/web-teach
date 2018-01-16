@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	   <script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	
+	<body ng-app="myApp" ng-controll="trl">
+		家族姓氏：{{firstName}}
+		<br />
+		族内成员：
+		<ul>
+			<li>
+				<span ng-bind="firstName"></span>
+				<span>{{lastName[0]}}</span>
+			</li>
+			
+			<li>
+				<span ng-bind="firstName"></span>
+				<span>{{lastName[1]}}</span>
+			</li>
+			
+			<li>
+				<span ng-bind="firstName"></span>
+				<span>{{lastName[2]}}</span>
+			</li>
+		</ul>
+		<input type="text" ng-model="firstName" />
+		<input type="text" ng-model="lastName"/>
+	</body>
+	<script type="text/javascript">
+		var app=angular.module("myApp",[]);
+		app.controller("trl",function($scope){
+			var uname=[]
+			$scope.firstName="";
+			$scope.lastName=uname;
+		})
+	</script>
+</html>
