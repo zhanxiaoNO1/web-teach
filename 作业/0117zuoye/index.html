@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="my" ng-controller="con">
+		<span>{{data}}</span>+
+		<input type="number" ng-model="num" />=
+		<span>{{result}}</span>
+	</body>
+</html>
+<script>
+	var app = angular.module("my",['myApp.service'])
+	var service = angular.module("myApp.service",[])
+
+	.value("shuru",5)
+	
+	.service("ser",function(shuru){
+		this.msg='this is data';
+		this.nums=shuru
+		console.log(this.nums)
+
+	})
+	
+	.factory("fac",function(ser){
+		
+		return{
+		shuzi:1
+		}
+		
+	})
+	
+	
+	.config(function($provide){
+		$provide.provider("pro",function(){
+			this.$get=function(){
+				return{
+					cc:5
+				}
+			}
+		})
+	})
+	
+
+		
+	.constant("cons",10)
+	
+	
+	
+	.controller("con",function($scope,fac,ser,shuru){
+		$scope.data=fac.shuzi;
+		$scope.num=shuru;
+		$scope.result=fac.shuzi+shuru
+	})
+	
+</script>

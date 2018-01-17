@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="my" ng-controller="con">
+		<p>{{data}}</p>
+	</body>
+</html>
+<script>
+	var app = angular.module("my",['myApp.service']);
+	var service = angular.module("myApp.service",[]);
+	service.service("ser",function(){
+		this.msg='this is data'
+//		console.log(service)
+
+	})
+	
+	service.factory("fac",function(){
+		return{
+			"a":"1"
+		}
+		
+	})
+	
+	service.controller("con",function($scope,fac,ser){
+		$scope.data=fac.a;
+		//$scope.data=ser.msg
+	})
+	
+</script>

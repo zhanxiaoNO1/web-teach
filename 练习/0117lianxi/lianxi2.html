@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/jquery-1.12.4.js"></script>
+	</head>
+	<body>
+		<p>点我</p>
+	</body>
+</html>
+<script>
+	$(function(){
+		$("p").on("click",function(){
+			ff()
+		})
+	})
+	 
+	 function ff(){
+	 	$.ajax({
+		type:"get",
+		url:"text.txt",
+		async:true,
+		success:function(res){
+			var a=JSON.parse(res);
+			$("p").innerHTML=a
+			console.log(a)
+		},
+		error:function(res){
+			
+		},
+		complete:function(res){
+			console.log(2)
+		}
+	});
+	 }
+	
+</script>

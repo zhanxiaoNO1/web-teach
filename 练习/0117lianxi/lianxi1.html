@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="app" ng-controller="con">
+		<ul>
+			<li ng-repeat="k in names track by $index">
+				{{k}}
+								
+			</li>
+		</ul>
+	</body>
+</html>
+<script>
+	var app=angular.module("app",[]);
+	app.controller("con",function($scope){
+		$scope.names=[{a:1},{a:1}]
+					
+	})
+</script>
