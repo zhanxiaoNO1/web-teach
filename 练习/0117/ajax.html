@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js"></script>
+
+	</head>
+
+	<body>
+		<script>
+			function getInfo() {
+				$.ajax({
+					url: "test.json",
+					type: "get",
+					data: {
+						user: "lli",
+						user: "裴庆文"
+					},
+					success: function(res){
+						document.write(res.裴庆文)
+					},
+					error:function(res){
+						console.log("错误")
+					},
+					complete:function(res){
+						console.log(res)
+					}
+
+				})
+			}
+			getInfo();
+		</script>
+	</body>
+
+</html>

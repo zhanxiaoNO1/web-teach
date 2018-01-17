@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+
+	<body ng-app="myapp">
+		<div ng-controller="myctrl">
+			{{data}}
+		</div>
+		<div ng-controller="myctrl1">
+			{{data1}}
+		</div>
+		<script>
+			var app = angular.module("myapp", ["sa", "sb"]);
+			var app1 = angular.module("sa", []);
+			var app2 = angular.module("sb", []);
+
+			app1.value("val",1);
+			app1.service("fa", function(val) {
+				this.b = val;
+					// console.log(this.b);   
+			})
+
+			app1.factory("fb", function(val,fa) {
+				return {
+					fun: function() {
+						var c = fa.b + val
+						return c
+					}
+				}
+			})
+
+			app2.value("fc", "哈哈");
+			
+			app.controller("myctrl", function($scope, fb) {
+				$scope.data = fb.fun();
+			})
+			app.controller("myctrl1", function($scope, fc) {
+				$scope.data1 = fc;
+			})
+		</script>
+	</body>
+
+</html>
