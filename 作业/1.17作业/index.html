@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myApp">
+	        <div ng-controller= "firstController">
+
+	                {{x}}
+	        </div>
+	        
+	        <div ng-controller="secondController">
+					{{y}}
+	         </div>
+	       
+    </div>
+	</body>
+</html>
+<script type="text/javascript">
+	
+var myApp = angular.module('myApp', []);
+ 
+myApp.factory('Data', function(){
+    return {
+    	name:"china"
+    };
+ 
+});
+ 
+
+ 
+myApp.controller('firstController',  function($scope,Data){
+    $scope.x = {name: "china"};
+    
+});
+ myApp.controller("secondController",function($scope,Data){
+ 	$scope.y = {name: "china"};
+ });
+
+
+	
+</script>
