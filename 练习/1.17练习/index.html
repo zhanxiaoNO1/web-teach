@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/jquery-1.12.4.js"></script>
+	</head>
+	<body >
+			
+		<!--<div ng-repeat="(x,y) in op">
+			<div >{{x}}</div><br />
+			<span>{{y}}</span>
+		</div>-->
+		<!--<table>
+			<tr ng-repeat="x in op track by $index">
+			<td>{{x}}</td>
+			</tr>
+		</table>-->
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<div >
+				{{x}}
+			</div>
+			
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+//	var app = angular.module("myApp", []);
+//		app.controller("myCtrl", function($scope) {
+//  $scope.op = [1,1,2,1];
+//});
+//	    $.ajax({  
+//          url:"new_file.json",  
+//          type:"post",//get  
+//          data:{},  
+//          async:true,  
+//          cache:true,  
+//          complete:function(){},  
+//          traditional:false,  
+//          dataType:"json",  
+//          success:function(data){},  
+//          error:function(){}  
+//       });  
+//    
+//   $.post("servlet",{},function(data){},"json");  
+//   $.get("servlet",function(data){},"json"); 
+//	var app = angular.module("myApp",["app2"])
+//		.controller("myCtrl",function($scope,fac){
+//			$scope.x = fac.a
+//		});
+//	var app2 = angular.module("app2",[])
+//		.factory("fac",function(){
+//			return{
+//				a:"hello"
+//			}
+//		});
+var app = angular.module("myApp",["app2"])
+	.controller("myCtrl",function($scope,fac){
+		$scope.x = fac.a
+	});
+var app2 = angular.module("app2",[])
+    .factory("fac",function(){
+    	return{
+    		a:"hi"
+    	}
+    });
+</script>
