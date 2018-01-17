@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="../../作业/1.16/js/angular.min.js"></script>
+	<body>
+		<div ng-app="myapp" ng-controller="crs">	
+			{{qq}}
+		</div>
+	</body>
+</html>
+	<script>
+		var app=angular.module("myapp",["mm"])
+		var se=angular.module("mm",[])
+		se.factory("bo",function(){
+			return{
+				aa:"ka"
+			}
+		})
+		app.controller("crs",function($scope,bo){
+			$scope.qq=bo.aa
+		})
+	</script>
+
