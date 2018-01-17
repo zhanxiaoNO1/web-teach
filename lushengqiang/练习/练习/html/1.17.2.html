@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="dd"/>
+		<input type="button" id="aa"/>
+	</body>
+</html>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+	
+		var aa=document.getElementById("aa");
+		var dd=document.getElementById("dd");
+		aa.onclick=function(){
+			var cc=dd.value;
+			$.ajax({
+				type:"get",
+				url:"ajax.json",
+				dataType:"json",
+//				data:{"id":},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				success:function(cc){
+					alert(cc)
+				},
+				error:function(aaaa){
+					alert(aaaa)
+				},
+			});
+		}
+	
+</script>

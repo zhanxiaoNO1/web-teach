@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrol" >
+		<div>
+		{{h}}
+		</div>
+	</body>
+</html>
+<script>
+	var app=angular.module("myApp",["service"]);	
+
+
+angular.module("service",[])
+.factory("con",function(){
+	return{
+		a:"this is date"
+	}
+})
+
+.controller("myCtrol",function($scope,con){
+	$scope.h=con.a
+})
+</script>

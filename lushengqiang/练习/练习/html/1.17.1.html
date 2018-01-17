@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<table>
+		<tr ng-repeat="(key,value) in aa ">
+		<td>{{key}}</td>
+		<td>{{value.mianji}}</td>
+		<td>{{value.renshu}}</td>
+		</tr>
+		</table>
+	</body>
+</html>
+<script>
+	var app=angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope){
+		$scope.aa={
+			"china":{mianji:"960万",renshu:"14亿"},
+			"America":{mianji:"960万",renshu:"14亿"},
+			"Japan":{mianji:"960万",renshu:"14亿"}
+			}
+	})
+</script>

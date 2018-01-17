@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<div>现在的名字是：{{uname}}</div>
+		<input type="radio" ng-model="uname" value="张三" name="aa"/>张三
+		<input type="radio" ng-model="uname" value="李四" name="aa"/>李四
+	</body>
+</html>
+<script>
+	var app=angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope){  
+		
+	})
+</script>

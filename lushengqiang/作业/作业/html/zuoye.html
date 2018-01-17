@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp"  >
+		<div ng-controller="myCtrol">
+		{{h}}
+		</div>
+		
+		<div ng-controller="myCtrol">
+		{{hh}}
+		</div>
+	</body>
+</html>
+<script>
+	var app=angular.module("myApp",["service"]);	
+
+
+angular.module("service",["cccc"])
+.factory("con",function(){
+	return{
+		a:"this is date"
+	}
+})
+
+angular.module("cccc",["dddd"])
+.service("china",function(){
+	
+		this.bb=America
+})
+angular.module("dddd",[])
+.config("china",function($scope,con){
+	
+		$scope.hh=con.bb
+})
+.controller("myCtrol",function($scope,con){
+	$scope.h=con.a
+})
+
+</script>

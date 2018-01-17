@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<input type="number" ng-model="num" />
+		<input type="button" ng-click="add()" value="click me"/>
+	</body>
+</html>
+<script>
+	var app=angular.module("myApp",[]);
+	app.controller("myCtrl",function($scope){
+		$scope.add=function(){alert($scope.num+1)}
+	})
+</script>
