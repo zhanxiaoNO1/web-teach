@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myapp1" ng-controller="myctrl">
+			<p>在输入框内输入：</p>
+			<p>姓名：<input type="text" ng-model="firstname"></p>
+			<p>你输入的为：{{firstname}}</p>
+		</div>
+
+		<!--空行-->
+		<div ng-app="myapp2" ng-controller="ca" id="myapp2">
+			<p>使用ng-repeat来循环数组</p>
+			<ul>
+				<li ng-repeat="(key,value) in users">
+					<i>{{key}}</i>
+					<i>{{value.sex}}</i>
+					<i>{{value.age}}</i>
+				</li>
+			</ul>
+		
+		</div>
+		<script>
+			var myapp1 = angular.module("myapp1",[]);
+			myapp1.controller("myctrl",function($scope){
+				$scope.firstname = ""
+			});
+			
+			/*var app2 = angular.module("myapp2",[]);
+			app2.controller("ca",function($scope){
+				$scope.names= [1,2,1,5,6,7];
+				$scope.num = 3;
+			})*/
+			var app2 = angular.module("myapp2",[]);
+			app2.controller("ca",function($scope){
+				$scope.users= {
+					"涨涨":{age:24,sex:"男"},
+					"鹏鹏":{age:19,sex:"男"},
+					"莉莉":{age:18,sex:"女"},
+				}
+				
+			})
+			angular.bootstrap(document.getElementById("myapp2"),["myapp2"]);
+			
+		</script>
+	</body>
+</html>

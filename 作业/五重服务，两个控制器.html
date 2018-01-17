@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+	</head>
+	<body ng-app="myapp">
+			<div ng-controller="myctrl1">
+				{{firstname}}
+			</div>
+			<div ng-controller="myctrl2">
+				{{lastname}}
+			</div>
+		<script>
+			var app = angular.module("myapp1",["myapp2","myapp3"]);
+			var app2 = angular.module("myapp2",[]);
+			var app3 = angular.module("myapp3",[]);
+			
+			app2.value("aaa",1);
+			app3.constant("ddd", 20);
+			
+			
+			app2.factory("bbb",function(aaa){
+				return {
+					fun:function(){
+						var c = aaa
+						return c
+					}
+				}
+			});
+			
+				app2.config(function($provide){
+					$provide.provider("ccc",function(bbb){
+						this.$get=function(){
+							return {
+						fun:function(){
+							var b = bbb
+							return b
+						}
+				}
+						}
+					})
+				});
+				
+				
+				app3.service("ser",function(ddd){
+				this.a = ddd
+			});
+						
+			app2.controller("myctrl1",function($scope,aaa,bbb,ccc){
+				
+        	$scope.firstname = aaa.c+bbb.b
+        	
+    		});
+    		app3.controller("myctrl2",function($scope,ddd,ser){
+    			$scope.lastname = ddd.a
+    		});
+		</script>
+	</body>
+</html>

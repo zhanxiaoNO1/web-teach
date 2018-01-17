@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="angular.min.js"></script>
+	</head>
+	<body>
+		<p>
+			名字：<span class="b"></span>
+		</p>
+		<p>
+			年龄：<span class="c"></span>
+		</p>
+		<p>
+			样子：<span class="d"></span>
+		</p>
+		<input type="button" id="b"/>
+		<script>
+			var n = document.getElementById("b");
+			n.onclick = function(){
+				getInfo()
+			}
+			function getInfo(){
+				$.ajax({
+					url:"test1.json",
+					type:"get",
+					data:{
+						user:"lli"
+					},
+					success:function(res){
+						alert("请求成功了");
+						var data = res.data;
+                    	console.log(data);
+                    $(".b").html(data.name);
+                    $(".c").html(data.age);
+                    $(".d").html(data.look);
+					},
+					error:function(res){
+						
+					},
+					complete:funticon(res){
+						console.log(111)
+					}
+				})
+			}
+		</script>
+	</body>
+</html>
