@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<div ng-bind="res"></div>
+	</body>
+	<script>
+//		var app = angular.module("myApp",["myApp2"]);
+//		app.controller("myCtrl",function($scope,fac){
+//			$scope.res = fac.a
+//		});
+//		var app2 = angular.module("myApp2",[]);
+//		app2.factory("fac",function(){
+//			return{
+//				a:"this is data"
+//			}
+//		})
+		
+		
+		var app = angular.module("myApp",["myApp2"]);
+		app.controller("myCtrl",function($scope,fac){
+			$scope.res = fac.a
+		})
+		var app2 = angular.module("myApp2",[]);
+		app2.factory("fac",function(){
+			return{
+				a:"this is data"
+			}
+		})
+	</script>
+</html>
