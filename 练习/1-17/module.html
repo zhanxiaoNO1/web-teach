@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>		
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="myCtrl">{{name}}</div>
+	</body>
+	<script type="text/javascript">
+		var app = angular.module("myApp",["myApp2"])
+		
+		var app2 = angular.module("myApp2",[])
+			.controller("myCtrl",function($scope,one){
+				$scope.name = one.two
+			})
+			.factory("one",function(){
+				return {
+					two:"three"
+				}
+			})
+			
+			
+	</script>
+</html>
