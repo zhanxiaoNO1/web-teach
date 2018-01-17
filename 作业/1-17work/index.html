@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<div ng-controller="myCtrl">{{name}}</div>
+		<div ng-controller="myCtrl2">{{age}}</div>
+	</body>
+	<script>
+		var app = angular.module("myApp",["myApp2","myApp3"])
+			app.value("one",1)
+		
+		var app2 = angular.module("myApp2",[])
+			app2.controller("myCtrl",function($scope,two){
+				$scope.name = two.a
+			})
+			app2.controller("myCtrl2",function($scope,five){
+				$scope.age = five.msg
+			})
+		
+		var app3 = angular.module("myApp3",[])
+			app3.service("two",function(three){
+				this.a = three.a+1
+			})
+			app3.factory("three",function(one){
+				return{
+					a:one
+				}
+			})
+			app3.constant("four",2)
+			app3.config(function($provide){
+				$provide.provider("five",function(four){
+					this.get = function(){
+						return {
+							msg:four
+						}
+					}
+				})
+			})
+	</script>
+</html>
