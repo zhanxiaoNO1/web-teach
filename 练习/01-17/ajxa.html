@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
+		<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+	</head>
+	<body>
+		<div>
+			
+		</div>
+		
+		<script>
+			function getInfor(){
+				$.ajax({
+					type:"get",
+					url:"text1.json",
+					async: false,
+					data:{
+						user:"lli"
+					},
+					success: function(res){
+						console.log("请求成功")
+						console.log(res)
+					},
+					error: function(res){
+						console.log("请求失败");
+					},
+					complete: function(res){
+						console.log("请求完成");
+					}
+				})
+			}
+			getInfor();
+		</script>
+	</body>
+</html>

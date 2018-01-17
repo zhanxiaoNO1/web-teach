@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+
+	<body>
+
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<h1 ng-repeat=" x in records">
+				{{x}}
+			<!--数据源x,对应数据仓库为数组格式-->
+			</h1>
+		</div>
+		
+		<div ng-app="myApp" ng-controller="myCtrl1" >
+			<div ng-repeat="(x, y) in myObj">
+			  <span>{{x}}</span>
+			  <span>{{y}}</span>  
+			 <!--数据源x、y,对应数据仓库为对象格式-->
+			</div>
+		</div>
+		<div ng-app="myApp" ng-controller="myCtrl2">
+			<div ng-repeat="x in numbers track by $index">
+				<!--默认识别值来循环，有相同项，不知道加载哪一个，会报错
+				解决办法：通过track by $index，以索引值识别循环-->
+			   	<div>{{x}}</div>
+			   	<!--数据源x,对应数据仓库为数组格式-->
+			</div>
+		</div>
+		<script>
+			
+			var app = angular.module("myApp", []);
+			app.controller("myCtrl2", function($scope) {
+				$scope.numbers = [1,1,2,4];
+			});
+			
+//			var app = angular.module("myApp", []);
+//			app.controller("myCtrl", function($scope) {
+//				$scope.records = [
+//					"菜鸟教程1",
+//					"菜鸟教程2",
+//					"菜鸟教程3",
+//					"菜鸟教程4",
+//				]
+//			});
+
+//			var app = angular.module("myApp", []);
+//			app.controller("myCtrl1", function($scope) {
+//			  $scope.myObj = {
+//			    "Name" : "Alfreds Futterkiste",
+//			    "Country" : "Germany",
+//			    "City" : "Berlin"
+//			  }
+//			});	
+			
+			
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../cope/angular.min.js"></script>
+	</head>
+	<body ng-app="myapp">
+		<div ng-controller="myctrl">
+			{{date}}
+		</div>
+		
+		<script>
+			var app = angular.module('myapp',['app.service']);
+			
+			var service = angular.module('app.service',[]);
+			
+			service.factory('myctrl1',function(){
+				return {mc:"this is date"}
+			})
+			
+			app.controller('myctrl',function($scope,myctrl1){
+				$scope.date =myctrl1.mc
+			})
+		</script>
+	</body>
+</html>
