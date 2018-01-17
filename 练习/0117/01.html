@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/jquery-1.12.4.js"></script>
+	<style>
+		.red{
+			color: #f00;
+		}
+	</style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+	<span>表达式</span>
+	<div>
+		<span>ng-bind</span>
+		<span ng-bind="num1"></span>
+		<input type="text" ng-model="num1"/>
+	</div>
+	<div ng-init="a='张';b='三'">
+		<span>ng-init</span>
+		<span>你的名字叫：{{a+""+b}}</span>
+	</div>
+	<span>指令</span>
+	<div>
+		<span>ng-clasa</span>
+		<span ng-class="{'red':true}">我的颜色是红色</span>
+	</div>
+	<div>
+		<span>ng-click</span>
+		<input type="number" ng-model="num2"/>
+		<input type="button" ng-click="num2=num2+1" value="点击+1"/>
+	</div>
+	<div>
+		<span>ng-dblclick</span>
+		<input type="button" ng-dblclick="num3()" value="双击666"/>
+	</div>
+	<div>
+		<span>ng-show</span>
+		<span ng-show="num4">呵呵哒</span>
+		点击显示<input type="checkbox" ng-model="num4"/>
+	</div>
+	<div>
+		<span>ng-hide</span>
+		<span ng-hide="num5">呵呵哒</span>
+		点击隐藏<input type="checkbox" ng-model="num5"/>
+	</div>
+	<div>
+		<span>双向绑定</span>
+		<input type="text" ng-model="num6" value="1"/>
+		<input type="text" ng-model="num6"/>
+	</div>
+	<div>
+		<span>单向绑定</span>
+		<span>{{num7}}</span>
+		<input type="text" ng-model="num7"/>
+	</div>
+	<div ng-repeat="x in aaa">
+		{{x}}
+	</div>
+	<div ng-repeat="y in bbb track by $index">
+		{{y}}
+	</div>
+	<div ng-repeat="z in res1">
+		{{z}}
+	</div>
+	<input type="button" ng-click="res()" value="click"/>
+</body>
+</html>
+<script>
+	var app = angular.module("myApp",[])
+	app.controller("myCtrl",function($scope){
+		$scope.num3 = function(){
+			alert("666");
+		}
+		$scope.aaa =[
+			{a:1},{a:1},{b:2}
+		]
+		/*$scope.bbb = "22222";*/
+		$scope.res = function(){
+			$.ajax({
+				type:"get",
+				url:"01.json",
+				async:true,
+				success:function(res){
+					console.log(res)
+					$scope.res1 = res;
+				}
+			});
+		}
+	})
+</script>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="bbb">
+	<div ng-bind="res"></div>
+	<script>
+		/*var app =angular.module("app",["app2"]);
+		app.controller("ctrl",function($scope,ser){
+			$scope.ser = ser.a;
+		})
+		var app2 = angular.module("app2",[]);
+		app2.factory("ser",function(){
+			return{
+				"a":"this is date"
+			}
+		})*/
+		/*var app = angular.module("app",["app2"])
+		.controller("ctrl",function($scope,fac){
+			$scope.fac = fac.a;
+		});
+		angular.module("app2",[])
+		.factory("fac",function(){
+			return{
+				a:"this is date"
+			}
+		})*/
+		/*var app = angular.module("app",["app2"])
+		.controller("ctrl",function($scope,fac){
+			$scope.fac = fac.a;
+		})
+		angular.module("app2",[])
+		.factory("fac",function(){
+			return{
+				a:"this is date"
+			}
+		})*/
+		/*var app = angular.module("app",["app2"])
+		.controller("ctrl",function($scope,fac){
+			$scope.res = fac;
+		});
+		
+		angular.module("app2",[])
+		.factory("fac",function(){
+			return{
+				a:"this is date"
+			}
+		});*/
+		angular.module("app",["bpp"]);
+		
+		angular.module("bpp",["cpp"])
+		.controller("bbb",function($scope,fac){
+			$scope.res = fac.a;
+		});
+		
+		angular.module("cpp",[])
+		.factory("fac",function(){
+			return{
+				a:"this a date"
+			}
+		});
+		
+	</script>
+</body>
+</html>

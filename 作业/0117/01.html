@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="Aapp" ng-controller="Bctrl">
+	<div>
+		{{res}}
+	</div>
+</body>
+</html>
+<script>
+	//1号模块
+	angular.module("Aapp",["Bapp"]);
+	
+	//2号模块
+	angular.module("Bapp",["Capp"])
+	.controller("Bctrl",function($scope,fac,ser,val){
+		$scope.res = fac.a+ser.b+val;
+	})
+	
+	//3号模块
+	angular.module("Capp",[])
+	.factory("fac",function(){
+		return{
+			a:"2"
+		}
+	})
+	.service("ser",function(){
+		return{
+			b:"3"
+		}
+	})
+	.value("val",5)
+	
+</script>

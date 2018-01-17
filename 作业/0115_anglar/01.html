@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
 	<title>Document</title>
 	<script src="js/angular.min.js"></script>
+	<script src="js/jquery-1.12.4.js"></script>
 	<style>
 		.aa{
 			border: 3px solid #fff;
@@ -20,31 +21,40 @@
 				标题主页
 			</th>
 		</tr>
-		<tr>
-			<td>
-				<div ng-repeat="x in result">{{x}}</div>
+		<tr ng-repeat="x in result">
+			<td ng-repeat="y in x">
+				<div ng-repeat="z in y">{{z}}</div>
 			</td>
-			<td>
+			<!--<td>
 				<div ng-repeat="x in result">{{x}}</div>
-			</td>
+			</td>-->
 		</tr>
-		<tr>
+		
+		<!--<tr>
 			<td>
 				<div ng-repeat="x in result">{{x}}</div>
 			</td>
 			<td>
 				<div ng-repeat="x in result">{{x}}</div>
 			</td>
-		</tr>
+		</tr>-->
 	</table>
 	<script>
 		var a = angular.module("a",[]);
 		a.controller("b",function($scope){
-			$scope.result = [
+			/*$scope.result = [
 				"<img src=''img/21.jpg>",
 				"1111111",
 				"2222222"
-			]
+			]*/
+			$.ajax({
+				url:"02.json",
+				success:function(res){
+					console.log(res)
+					$scope.result = res;
+					console.log($scope.result)
+				}
+			})
 		})
 	</script>
 </body>
