@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div  ng-app="app1" >
+			
+			<div ng-controller="ctrl1">
+				{{data}}
+			</div>
+			<div ng-controller="ctrl2">
+				{{data}}
+			</div>
+		</div>
+		
+			
+		
+	</body>
+	<script type="text/javascript">
+		var app1=angular.module("app1",["app1.app2"]);
+		var app2=angular.module("app1.app2",[]);
+		app2.constant("con",111)
+		app2.value("a",222);
+		
+		app2.service("ser",function(a,con){
+			this.b=a+con;
+		});
+		
+		app2.factory("fac",function(a,ser,con){
+			return {
+				fun1:function(){
+					var c=a+ser.b+con;
+					return c;
+				}
+			}
+		});
+		app2.provider("pro",function(){
+			return {
+				$get:function(){
+					
+					return {d:111};
+				}
+			}
+		});
+		app1.controller("ctrl1",function($scope,pro){
+			$scope.data=pro.d;
+		});
+		app1.controller("ctrl2",function($scope,fac){
+			$scope.data=fac.fun1();
+		});
+	</script>
+</html>
