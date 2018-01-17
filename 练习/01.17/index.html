@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		<ul>
+			<li ng-repeat="(x,y) in arr">
+				{{x}}
+				{{y.three}}
+				{{y.five}}
+			</li>
+		</ul>
+	</body>
+	<script>
+		var app = angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope){
+				var arr = {
+					"one":{
+						"three":"four",
+						"five":"six"
+					},
+					"seven":{
+						"three":"four",
+						"five":"six"
+					},
+					"two":{
+						"three":"nine",
+						"five":"eleven"
+					}
+				}
+				$scope.arr = arr
+
+			})
+	</script>
+</html>
