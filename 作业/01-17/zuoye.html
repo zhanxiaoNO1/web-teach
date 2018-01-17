@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+
+	<body>
+		<div ng-app="myapp1" ng-controller="ctrl">
+			{{service}}
+			<li ng-bind="factory"></li>
+			{{provider}}
+		</div>
+
+	</body>
+
+</html>
+<script>
+	angular.module("myapp", [])
+		.factory("factory", function() {
+			return {
+				"a": "2"
+			}
+		})
+		.service("service", function(value) {
+			this.c = value
+		})
+		.config(function($provide) {
+			$provide.provider("provider", function() {
+				this.$get = function(constant) {
+					return {
+						fun: function() {
+							b = constant
+						}
+					}
+				}
+			})
+		})
+	.value("value", 1)
+	.constant("constant", 3)
+	angular.module("myapp1", ["myapp2", "myapp"])
+	angular.module("myapp2", [])
+		.controller("ctrl", function($scope, factory, value, constant, provider, service) {
+			$scope.factory = factory.a  /*2*/
+			$scope.service = service.c  /*1*/
+			provider.fun()
+			$scope.provider = b  /*3*/
+		})
+</script>
