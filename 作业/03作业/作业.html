@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myapp1" ng-controller="Ctrl">
+			{{dlt}}
+			<div ng-bind="cap"></div>
+			{{ten}}
+		</div>
+		
+	</body>
+	<script>
+		angular.module("myapp",[])
+		.factory("cap",function(){
+			return{
+				"a":"南京"
+			}
+		})
+		
+		.service("dlt",function(yes){
+			this.a=yes
+		})
+		
+		.config(function($provide){
+			$provide.provider("ten",function(){
+				this.$get=function(yy){
+					return{
+						fun:function(){
+							b=yy
+						}
+					}
+				}
+			})
+		})
+
+		/*.value("yes","")
+		.constant("yy","")
+		angular.module("myapp1",["myapp2","myapp"])
+		angular.module("myapp2",[])
+		.controller("Ctrl",function($scope,cap,ten,dlt){
+			$scope.cap=cap.a
+			$scope.dlt=dlt.a
+			ten.fun()
+			$scope.ten=b
+		})*/
+		
+		.value("yes","")
+		.constant("yy","")
+		angular.module("myapp1",["myapp2","myapp"])
+		angular.module("myapp2",[])
+			.controller("Ctrl", function($scope, cap, ten, dlt) {
+				$scope.cap = cap.a
+				$scope.dlt = dlt.a
+				ten.fun()
+				$scope.ten = b
+			})
+			
+		
+	</script>
+</html>

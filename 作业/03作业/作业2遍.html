@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myapp1" ng-controller="Ctrl">
+			{{pp}}
+			<div ng-bind="lo"></div>
+			{{kk}}
+		</div>
+	</body>
+	<script>
+		angular.module("myapp",[])
+		   .factory("lo",function(){
+		   	return{
+		   		"a":"伊斯坦布尔"
+		   	}
+		   })
+		.service("pp",function(hd){
+			this.a=hd
+		})
+
+		.config(function($provide){
+			$provide.provider("kk",function(){
+				this.$get=function(mm){
+					return{
+						fun:function(){
+							b=mm
+						}
+					}
+				}
+			})
+		})
+		
+		.value("hd","")
+		.constant("mm","")
+		angular.module("myapp1",["myapp2","myapp"])
+		angular.module("myapp2",[])
+		   .controller("Ctrl",function($scope,lo,kk,pp){
+		   	   $scope.lo=lo.a
+		   	   $scope.pp=pp.a 
+		   	   kk.fun()
+		   	   $scope.kk=b
+		   })
+	</script>
+</html>
