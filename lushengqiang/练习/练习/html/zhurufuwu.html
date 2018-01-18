@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.min.js"></script>
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
+		{{num}}
+		<script>
+			var app=angular.module("myApp",[])
+			.controller("myCtrl",function($scope,ser){
+				$scope.num=ser.b
+			})
+			.value("val",1)
+			.service("ser",function(val){
+				this.b=val
+			})
+			
+			//configfuwu
+//			app2.config(function($provide){
+//				$provide.provider("pro",function(){
+//					this.$get=function(bbb){
+//						return{
+//							fun:function(){
+//								return bbb.fun()
+//							}
+//						}
+//					}
+//				})
+//			})
+//			语法糖
+//				app2.provider("pro",function(){
+//					return{
+//					$get:function(bbb){
+//						return{
+//							fun:function(){
+//								return bbb.fun()
+//							}
+//						}
+//					}
+//				})
+//				}
+//			})
+		</script>
+	</body>
+</html>

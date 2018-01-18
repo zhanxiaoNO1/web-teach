@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<script src="../js/angular.min.js"></script>		
+	</head>
+	<body ng-app="app" ng-controller="ccc" >
+	{{ssss}}
+	</body>
+</html>
+<script>
+var app=angular.module("app",[])
+app.controller("ccc",function($scope,$http){
+	var cc=$http.get("1.8.html")
+	.success(function(a){
+		$scope.ssss=a
+		
+	})
+	.error(function(data,status){
+		console.log(data,status);
+	})
+})
+
+</script>

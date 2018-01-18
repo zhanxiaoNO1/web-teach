@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="app">
+			<div ng-controller="mainController">
+				{{data}}
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	var app=angular.module("app",["app.service"]);
+	var service=angular.module("app.service",[]);
+	service.factory("dataservice",function(){
+		return{
+			msg:"this is data"
+		}
+	})
+	app.controller("mainController",function($scope,dataservice,){
+		$scope.data=dataservice.msg
+	})
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.min.js"></script>
+		<script src="../js/angular-route.js"></script>
+		
+	</head>
+	<body ng-app="app" ng-controller="myCtrl">
+		<div ng-view>
+		<script type="text/ng-template" id="1.8.html">
+		<!--<div ng-view>-->
+			
+			<h1></h1>
+			
+		<!--</div>	-->
+		</script>
+		</div>
+	</body>
+</html>
+<script>
+var app=angular.module("app",["ngRoute"]);
+	app.config(function($routeProvider){
+		$routeProvider
+		.when("/",{
+			template:"<h1>这是模板规定内容</h1>"
+			templateUrl:"1.8.html",
+			controller:"myCtrl",
+		})
+		.otherwise({
+			redirectTo:"/"
+		})
+	})
+</script>
