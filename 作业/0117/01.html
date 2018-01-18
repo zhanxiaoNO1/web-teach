@@ -23,12 +23,12 @@
 	
 	//3号模块
 	angular.module("Capp",[])
-	.factory("fac",function(){
+	.factory("fac",function(ser){
 		return{
 			a:"2"
 		}
 	})
-	.service("ser",function(){
+	.service("ser",function(val){
 		return{
 			b:"3"
 		}
