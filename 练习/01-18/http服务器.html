@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+	</head>
+
+	<body ng-app="myApp">
+
+		<div  ng-controller="siteCtrl">
+
+		</div>
+
+		<script>
+			var app = angular.module('myApp', []);
+
+			app.controller('siteCtrl', function($scope, $http) {
+				$http({
+					method: 'get',
+					url: 'data.json',
+				}).then(function successCallback(response,status) {
+					console.log('get',response,status) 
+				}, function errorCallback(response,status) {
+					console.log('err',response,status)
+					// 请求失败执行代码
+				});
+
+			});
+		</script>
+
+	</body>
+
+</html>

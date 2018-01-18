@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../cope/angular.min.js"></script>
+		<script src="../cope/angular-route.js"></script>
+	</head>
+	<body ng-app="myapp">
+		<div ng-view></div>
+		<!--<ng-view></ng-view>-->
+		<span>
+			<a href="#/home">hour</a>
+		</span>
+		<span>
+			<a href="#/about">date</a>
+		</span>
+		
+		<script type="text/ng-template" id="a.html">
+			 <h1> {{h}} </h1>			
+		</script>
+		<script type="text/ng-template" id="b.html">
+		  <h1> {{m}} </h1>		
+		</script>
+				
+		<script>
+			angular.module('myapp',['ngRoute'])
+			.controller('myctrl',function($scope){
+				$scope.h = "6:66"
+			})
+			.controller('myctrl1',function($scope){
+				$scope.m = "日期"
+			})
+
+			.config(function($routeProvider){
+				$routeProvider
+				.when('/home',{
+					/*template:'这是电脑分类页面',*/
+					templateUrl: "a.html",  /*显示内容*/
+        			controller: "myctrl",   
+				})
+				.when('/about',{
+					/*template:'这是电脑分类页面',*/
+					templateUrl: "b.html",
+        			controller: "myctrl1",
+				})
+				.otherwise({
+			        redirectTo: '/home'
+			    });
+			})
+		</script>
+		
+	</body>
+</html>

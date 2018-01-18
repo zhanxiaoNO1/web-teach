@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+		<script src="app.js"></script>
+		<script src="service.js"></script>
+		<script src="controller.js"></script>
+		
+	</head>
+
+	<body>
+		<div ng-app="myapp1" ng-controller="ctrl">
+			{{service}}
+			<li ng-bind="factory"></li>
+			{{provider}}
+		</div>
+	</body>
+
+</html>
