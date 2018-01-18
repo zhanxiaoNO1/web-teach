@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/apps.js"></script>
+		<script src="js/controller.js"></script>
+		<script src="js/factory.js"></script>
+		<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		
+		.box {
+			width: 500px;
+			height: 600px;
+			margin: 150px auto;
+			border: 5px solid red;
+		}
+		
+		.top {
+			width: 490px;
+			height: 50px;
+			border: 5px solid green;
+			font-size: 30px;
+			text-align: center;
+		}
+		
+		.fot{
+			width: 490px;
+			height: 530px;
+			border: 5px solid black;
+		}
+		
+		.fot ul li {
+			width: 200px;
+			height: 190px;
+			margin: 25px 15px;
+			border: 5px solid yellow;
+			float: left;
+			font-size: 15px;
+		}
+		
+		.fot ul li img {
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+	</head>
+	<body ng-app="myapp" ng-controller="mycro">
+		<div class="box">
+			<div class="top">
+				什么都不说了。。。
+			</div>
+			<div class="fot">
+				<ul>
+					<li ng-repeat="x in arr1">
+						<img ng-src="{{x.img}}"/>
+						姓名：{{x.name}}<br />
+						年龄：{{x.price}}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+

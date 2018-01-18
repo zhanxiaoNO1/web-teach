@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<style>
+			.red{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body ng-app="app">
+		<div wtf id="b" data-lala="true"></div>A区域
+		<!--<wtf></wtf>
+		<div class="wtf"></div>-->
+		
+		<div ng-class='{"red":$root.sss}'></div>B区域
+		<script>
+			angular.module("app",[])
+			//.directive方法用来创建自定义命令
+			//自定义指令名称，如果以小驼峰式书写，调用时需以-分割
+			.directive("wtf",function($rootScope){
+				//返回一个对象
+				return{
+					//对象中有固定属性
+					template:"wtf wfl",
+					//templateUrl："内容路径"
+					//restrict属性用来规定,调用方式
+					
+					//Eelement；标签调用
+					//C
+					//M
+					//A
+					restrict:"E C M A ",
+					//link是为该自定义指令设置一个方法链入有三个参数
+					//el:代表调用该自定义指令的元素，即DOM
+					//attrs：当前DOM元素具有的所有属性
+					//scope：设置该方法独立的作用域
+					link:function(scope,el,attrs){
+						if(attrs.lala == "false"){
+							$rootScope.sss = false;
+						}else{
+							$rootScope.sss = true;
+						}
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.js"></script>
+	</head>
+	<body ng-app="app">
+		<div ng-view></div>
+		
+		
+		<script type="text/ng-template" id="a.html">
+			<a href="#/home">ccc</a>
+			<h1>
+				這是一個內置模板页标签Home页
+				内载入模板页:
+					在html文件内部:使用script标签创建的html模板
+					该script标签 type="text/ng-template"
+			</h1>
+			<h2>
+			这是H2
+			Allow-origin-xxxxxx
+			</h2>
+		</script>
+		
+		
+		<script type="text/ng-template" id="b.html">
+			<div>
+				{{name}}
+			</div>
+			<a href="#/">aaaaaaa</a>
+			<h1>
+				這是一個內置模板页标签Home页
+				内载入模板页:
+					在html文件内部:使用script标签创建的html模板
+					该script标签 type="text/ng-template"
+			</h1>
+			<h2>
+			这是H2
+			Allow-origin-xxxxxx
+			</h2>
+		</script>
+		
+		<script>
+			var app = angular.module("app",['ngRoute']);
+			app.controller("myctrl",function($scope){
+				$scope.name= "23333"
+			})
+			app.config(function($routeProvider){
+				$routeProvider
+				.when('/',{templateUrl:'a.html',
+				controller:'myctrl'
+				
+				})
+				.when('/home',{templateUrl:'b.html'})
+				.otherwise({redirectTo:'/home'})
+			})
+		</script>
+	</body>
+</html>
