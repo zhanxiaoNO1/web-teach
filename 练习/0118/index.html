@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			.wai{
+				width: 400px;
+				height: 500px;
+				border: 1px solid black;
+			}
+			ul{
+				list-style: none;
+			}
+			ul li{
+				float: left;
+			}
+			img{
+				width: 100px;
+				height: 100px;
+			}
+			li{
+				width: 150px;
+				height: 110px;
+				margin: 20px 10px;
+				padding: 40px 0;
+				border: 5px solid orange;
+			}
+			h3{
+				border: 5px solid red;
+				padding: 0 150px 0;
+			}
+			img{
+				width: 150px;
+				height:100px;
+			}
+		</style>
+		<script type="text/javascript" src="js/angular.min.js" ></script>
+		<script type="text/javascript" src="js/app.js" ></script>
+		<script type="text/javascript" src="js/controller.js" ></script>
+		
+	</head>
+	<body>
+		<div class="wai">
+		<h3>商铺</h3>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<ul>
+				<li ng-repeat="x in names">
+					<img ng-src={{x.pic}} />
+					<br />
+					名称：{{x.name}} 
+					<br />
+					价格：{{x.price}}
+				</li>
+			</ul>
+		</div>
+		</div>
+	</body>
+</html>
