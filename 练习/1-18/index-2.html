@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.js"></script>
+	</head>
+    <body ng-app='myApp'>
+        <ul>
+            <li><a href="#/">a</a></li>
+            <li><a href="#/aa">b</a></li>
+            <li><a href="#/bb">c</a></li>
+            <li><a href="#/blabla">其他</a></li>
+        </ul>
+         
+        <div ng-view></div>
+        <script>
+            angular.module('myApp',['ngRoute'])
+            .config(['$routeProvider', function($routeProvider){
+                $routeProvider
+                .when('/',{template:'这是a页面'})
+                .when('/aa',{template:'这是b页面'})
+                .when('/bb',{template:'这是c页面'})
+                .otherwise({redirectTo:'/'});
+            }]);
+        </script>
+     
+     
+    </body>
+</html>
