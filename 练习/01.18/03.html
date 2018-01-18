@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.js"></script>
+	
+</head>
+<body ng-app="myApp">
+	<div>
+		<a href="#/">index</a>
+		<a href="#/home">home</a>
+		<a href="#/about">about</a>
+	</div>
+	<div ng-view></div>
+	<script type="text/ng-template" id="a.html">
+		<div>
+			111111111111111111111111111111111111111111111111111111111
+		</div>
+	</script>
+	<script type="text/ng-template" id="b.html">
+		<div>
+			222222222222222222222222222222222222222222222222222222222
+		</div>
+	</script>
+	<script type="text/ng-template" id="c.html">
+		<div>
+			333333333333333333333333333333333333333333333333333333333
+		</div>
+	</script>
+</body>
+</html>
+<script>
+	angular.module("myApp",["ngRoute"])
+	.controller("myCtrl",function($scope){
+		
+	})
+	.config(function($routeProvider){
+		$routeProvider
+			.when("/",{
+				templateUrl:"a.html",
+				controller:"myCtrl"
+			})
+			.when("/home",{
+				templateUrl:"b.html",
+				controller:"myCtrl"
+			})
+			.when("/about",{
+				templateUrl:"c.html",
+				controller:"myCtrl"
+			})
+	})
+</script>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-route.js"></script>
+</head>
+<body ng-app="myApp">
+	<div>
+		<a href="#/">首页</a>
+		<a href="#/home">aaaa</a>
+	</div>
+	<div ng-view></div>
+</body>
+</html>
+<script>
+	angular.module("myApp",["ngRoute"])
+	.controller("myCtrl",function($scope){})
+	.config(function($routeProvider){
+		$routeProvider
+			.when("/",{
+				template:"主页",
+				controller:"myCtrl"
+			}).when("/home",{
+				template:"aaaa",
+				controller:"myCtrl"
+			}).otherwise({
+				redirectTo:"/"
+			})
+	})
+</script>

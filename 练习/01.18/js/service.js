@@ -1,0 +1,25 @@
+	angular.module("serv",[])
+	.factory("cont",function(){
+	return data={
+				"t1":{
+					"images":"img/1.png",
+					"wpName":"圣职者",
+					"price":"20灵魂碎片"
+				},
+				"t2":{
+					"images":"img/2.png",
+					"wpName":"鬼剑士",
+					"price":"20灵魂碎片"
+				},
+				"t3":{
+					"images":"img/3.png",
+					"wpName":"神枪手",
+					"price":"20灵魂碎片"
+				},
+				"t4":{
+					"images":"img/4.png",
+					"wpName":"格斗家",
+					"price":"20灵魂碎片"
+				}
+			}
+	})
