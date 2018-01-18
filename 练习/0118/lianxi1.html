@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	
+	<body ng-app="app" ng-controller="con">
+		
+			<!--<ul>
+				<li ng-repeat="x in arr" ng-style="{'width':'360px','height':'390px','border':'1px solid black','float':'left','margin':'40px'}">
+					
+					<span>名称：</span>{{x.name}} <br />
+					<span>价格：</span>{{x.price}} <br />
+
+				</li>
+			</ul>
+	-->
+	<div>{{name}}</div>
+	</body>
+</html>
+<script>
+	var app = angular.module("app", []);
+	app.controller("con", function($scope,$http) {
+		//$http.get("GET json")
+		$http({
+			url:"ajax.json"
+		}).then(function(res){
+			
+			$scope.name=res.data.num.name
+		},function(res){
+			console.log(res.data)
+		})
+	})
+</script>

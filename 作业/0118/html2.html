@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.js"></script>
+	</head>
+	<body ng-app="myApp">
+		<script type="text/ng-template" id="home.html">
+	    <!--<a href="#/b.html">sss</a>	 -->
+	    <h1>ss</h1>
+</script>
+
+<script type="text/ng-template" id="about.html">
+	<!--<a href="#/a.html">bbb</a>-->
+	<h1>ss</h1>
+</script>
+<div ng-view=""></div>
+<div>
+	<a href="#/home">home</a>
+	<a href="#/about">about</a>
+</div>
+	</body>
+</html>
+<script>
+	var app=angular.module("myApp",["ngRoute"]);
+//	app.controller("mycon",function($scope){
+//		$scope.name=xu
+//	})
+	app.config(function ($routeProvider){
+		$routeProvider
+		.when("/home",{
+			template:"这是home",
+			templateUrl:"home.html",
+			//controller:"mycon"
+			
+			
+		}).
+		when("/about",{
+			template:"这是about",
+			templateUrl:"about.html",
+		})
+		
+	})
+</script>
