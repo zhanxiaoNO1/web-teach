@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+   	<!-- 设置图片-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link href="css/ionic.css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/ionic.bundle.js"></script>
+    <title>滑动框</title>
+    <style type="text/css">
+        .box img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+  <!--  //注入ionic-->
+    <script type="text/javascript">
+        var app = angular.module("AA", ["ionic"]);
+    </script>
+</head>
+<body ng-app="AA">
+	<!-- 表示自动播放，  表示自动滑动 和  表示等待2000毫秒开始滑动  -->
+	 <ion-slide-box auto-play="true" does-continue="true" slide-interval=2000>  
+	    <ion-slide>
+	        <div class="box">
+	            <img src="img/article_image01.jpg"/>
+	        </div>
+	    </ion-slide>
+	    <ion-slide>
+	        <div class="box">
+	            <img src="img/article_image02.jpg"/>
+	        </div>
+	    </ion-slide>
+	    <ion-slide>
+	        <div class="box">
+	            <img src="img/article_image03.jpg"/>
+	        </div>
+	    </ion-slide>
+	</ion-slide-box>
+</body>
+</html>
