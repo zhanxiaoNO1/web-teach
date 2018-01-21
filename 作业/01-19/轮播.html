@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+
+	<head>
+
+		<meta charset="UTF-8">
+
+		<title></title>
+
+		<link rel="stylesheet" href="css/ionic.min.css" />
+
+		<script type="text/javascript" src="js/ionic.bundle.min.js"></script>
+
+
+	</head>
+
+	<body ng-controller="myController">
+
+		<ion-header-bar class="bar-positive">
+
+			<ion-title>
+
+				<h3>轮播</h3>
+
+			</ion-title>
+
+		</ion-header-bar>
+
+		<ion-content>
+
+			<ion-slide-box active-slide="model.activeIndex" does-continue="true" slide-interval="1000" auto-play="true" show-pager="true" pager-click="toSlideIndex(index)" on-tap="stopOrStart()">
+
+				<ion-slide>
+
+					<img class="img-responsive" src="img/timg.jpg" />
+
+				</ion-slide>
+
+				<ion-slide>
+
+					<img src="img/img1.jpg" />
+
+				</ion-slide>
+
+				<ion-slide>
+
+					<img src="img/img2.jpg" />
+
+				</ion-slide>
+				
+				<ion-slide>
+
+					<img src="img/img3.jpg" />
+
+				</ion-slide>
+
+			</ion-slide-box>
+
+		</ion-content>
+
+		<ion-footer-bar class="bar-positive"></ion-footer-bar>
+
+		<script>
+			angular.module("myApp", ['ionic'])
+			.controller("myController", function($scope, $ionicSlideBoxDelegate) {
+				$scope.model = {
+					activeIndex: "2",
+				};
+				$scope.toSlideIndex = function(index) {
+					$scope.model.activeIndex = index;
+				};
+				$scope.even = 0;
+				$scope.stopOrStart = function() {
+					if($scope.even == 0) {
+						$ionicSlideBoxDelegate.stop();
+						$scope.even = 1;
+					} else {
+						$ionicSlideBoxDelegate.start();
+						$scope.even = 0;
+					}
+				}
+			});
+		</script>
+
+	</body>
+
+</html>
