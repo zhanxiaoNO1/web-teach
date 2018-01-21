@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+
+    <head>
+
+       <meta charset="UTF-8">
+
+       <title>使用ionic中ion-slide-box实现移动app轮播特效</title>
+
+       <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0,user-scalable=no,width=device-width" />
+
+       <link rel="stylesheet" href="css/ionic.min.css" />
+
+       <script type="text/javascript"src="js/ionic.bundle.min.js"></script>
+
+       <style>
+
+           img{
+
+              max-width:100%;
+
+           }
+
+       </style>
+
+    </head>
+
+    <body ng-controller="myController">
+
+       <ion-header-bar class="bar-positive">
+
+           <ion-title>
+
+              <h3>移动app轮播特效的制作</h3>
+
+           </ion-title>
+
+       </ion-header-bar>
+
+       <ion-content>
+
+           <ion-slide-box active-slide="model.activeIndex" does-continue="true" slide-interval="1000" auto-play="true" show-pager="true" pager-click="toSlideIndex(index)" on-tap="stopOrStart()">
+
+              <ion-slide>         
+
+                 <img src="img/0-.jpg"/>       
+
+              </ion-slide>
+
+              <ion-slide>
+
+                  <img src="img/1-.jpg"/>   
+
+              </ion-slide>
+
+              <ion-slide>
+
+                  <img src="img/2-.jpg"/>   
+
+              </ion-slide>
+
+
+           </ion-slide-box>
+
+       </ion-content>
+
+       <ion-footer-bar class="bar-positive"></ion-footer-bar>
+
+       <script>
+
+           angular.module("myApp", ['ionic'])
+
+                .controller("myController", function($scope, $ionicSlideBoxDelegate) {
+
+                  $scope.model = {
+
+                     activeIndex: "2",
+
+                  };
+
+                  /**
+
+                   * 单击分页器，跳到指定的幻灯片
+
+                   */
+
+                  $scope.toSlideIndex = function(index) {
+
+                     $scope.model.activeIndex = index;
+
+                  };
+
+                  /**
+
+                   * 第一次轻击幻灯片，停止轮播
+
+                   * 第二次轻击幻灯片，开始轮播
+
+                   * 依次循环
+
+                   */
+
+                  $scope.even = 0;
+
+                  $scope.stopOrStart = function() {
+
+                     if($scope.even == 0) {
+
+                         $ionicSlideBoxDelegate.stop();
+
+                         $scope.even=1;
+
+                     } else {
+
+                         $ionicSlideBoxDelegate.start();
+
+                         $scope.even=0;
+
+                     }
+
+ 
+
+                  }
+
+              });
+
+       </script>
+
+    </body>
+
+</html>
