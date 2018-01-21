@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css"/>
+    <script src="js/ionic.bundle.min.js"></script>
+    <script type="text/javascript">
+    angular.module('ionicApp', ['ionic'])
+
+    .controller('SlideController', function($scope) {
+      
+      $scope.myActiveSlide = 1;
+      
+    })
+    </script>
+    <style >
+    .slider {
+      height: 100%;
+    }
+   .slider-slide {
+      color: #000; 
+      background-color: #fff; text-align: center; 
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; font-weight: 300; }
+    .skyblue {
+      background-color: skyblue;
+    }
+
+    .hotpink {
+      background-color: hotpink;
+    }
+
+    .black {
+      background-color: black;
+    }
+	.box{ 
+      height:100%; 
+    } 
+    .box h1{
+      position:relative; top:50%; transform:translateY(-50%); 
+    }
+    </style>
+  </head>
+	<div class="bar bar-header bar-positive">
+			<div class="title">作业是这样吧</div>
+		</div>
+  <body ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
+
+  <ion-slide-box active-slide="myActiveSlide">
+    <ion-slide>
+      <div class="box skyblue"></div>
+    </ion-slide>
+    <ion-slide>
+      <div class="box hotpink"></div>
+    </ion-slide>
+    <ion-slide>
+      <div class="box black"></div>
+    </ion-slide>
+  </ion-slide-box>
+    
+  </body>
+</html>
