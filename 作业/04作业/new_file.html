@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/ionic.min.css" />
+		<script src="js/ionic.bundle.min.js"></script>
+		<script src='js/jquery-1.12.4.js'></script>
+		<script>
+		 	console.log($('.two'));
+		 	console.log($(".one"));
+		 	$('.two').on("click",function(){
+		 		console.log(1);
+		 		$('.one').css("display","none");
+		 		
+		 	})
+		 	
+		    angular.module('ionicApp', ['ionic'])
+		
+		    .controller('SlideController', function($scope) {
+		      
+		      $scope.myActiveSlide = 1;
+		      
+		    })
+		    
+		   
+	    </script>
+		<style>
+			.bigBox{
+				width:1800px;
+				position: relative;
+			}
+			.one{
+				float:left;
+				width:950px;
+			}
+			.pp{
+			    height:180px;
+			}
+			.pp>img{
+				margin-top:50px;
+				margin-left:35px;
+			}
+			.pp>h2{
+				font-size:40px;
+				margin:55px 0 0 30px;
+			}
+			.one i{
+				font-size:70px;
+				float: left;
+				margin-left:-50px;
+			}
+			.one h1{
+				float:left;
+				padding-left:20px;
+			}
+			
+			.hei{
+				height:600px;
+			}
+			.two{
+				position:absolute;
+				left:750px;
+				top:0;
+			}
+			.two input{
+				font-size:50px;
+				height:120px;
+				line-height: 30px;
+			}
+			.two img{
+				margin-top:25px;
+			}
+			.item-body>img{
+				height:200px;
+				width:400px;
+			}
+			.item-body>p{
+				font-size:30px;
+			}
+			
+			.slider {
+		      height: 200px;
+		    }
+		   .slider-slide {
+		      color: #000; 
+		      background-color: #fff; text-align: center; 
+		      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+		      font-weight: 300; 
+		    }
+		    .gre {
+		      background-color:greenyellow;
+		    }
+			.blu{
+		      background-color: blueviolet;
+		    }
+			.dak{
+		      background-color:deepskyblue;
+		    }
+			.box{ 
+		      height:100%; 
+		    } 
+		    .box h1{
+		      position:relative; 
+		      top:50%; 
+		      transform:translateY(-50%); 
+		    }
+			
+	</style>		
+	</head>
+	<body>
+		<div class="bigBox">
+			<div class="one">
+				<div class="item item-avatar item-thumbnail-left pp col-75" href="#">
+				    <img src="img/c3.png">
+				    <h2 style="padding-top:10px">翡翠在手，天下我有</h2>
+				</div>
+				<div class="item item-thumbnail-left col-75" href='#'>
+			    	<i class="icon ion-ribbon-b"></i>
+			    	<h1>开通会员</h1>
+			    </div>
+				<div class="item item-thumbnail-left col-75">
+					<i class="icon ion-tshirt-outline"></i>
+					<h1>个性装扮</h1>
+				</div>
+				<div class="item item-thumbnail-left col-75">
+					<i class="icon ion-lock-combination"></i>
+					<h1>我的文件</h1>
+				</div>
+				<div class="item item-thumbnail-left col-75">
+					<i class="icon ion-ios-home-outline"></i>
+					<h1>设置</h1>
+				</div>
+				<div class="item item-thumbnail-left col-75 hei"></div>
+			</div>
+			
+			<div class="two" id="two">
+				<div class="item item-avatar item-thumbnail-left href="#" style="height:150px;">
+				    <img src="img/c3.png">
+				    <label class="item item-input">
+					    <input type="text" placeholder="search"/>
+					</label>
+					
+				</div>
+			    <div ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
+			    	<ion-slide-box active-slide="myActiveSlide">
+				    <ion-slide>
+				        <div class="box gre"></div>
+				    </ion-slide>
+				    <ion-slide>
+				        <div class="box blu"></div>
+				    </ion-slide>
+				    <ion-slide>
+				        <div class="box dak"></div>
+				    </ion-slide>
+				  </ion-slide-box>
+			    </div>	
+				
+				<div class="item item-body">
+				    <img class="full-image" src="img/b2.jpg">
+				    <p>javaScript是你的最爱吧，赶紧抱着书睡觉</p>
+				    <p>
+				      <a href="#" class="subdued">1 喜欢</a>
+				      <a href="#" class="subdued">5 评论</a>
+				    </p>
+				</div>
+				
+				<div class="item item-body">
+				    <img class="full-image" src="img/b5.jpg">
+				    <p>HTML5+CSS3是最新版本的web前端知识</p>
+				    <p>
+				      <a href="#" class="subdued">1 喜欢</a>
+				      <a href="#" class="subdued">5 评论</a>
+				    </p>
+				</div>
+				<div class="item item-body">
+					<i class="icon ion-ios-home" style="font-size:80px;"></i>
+					<p>主页</p>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+</html>
