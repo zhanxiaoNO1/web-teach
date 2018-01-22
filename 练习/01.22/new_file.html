@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+		<script src="js/ionic.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<ion-side-menus>
+			<!-- Left menu -->
+			<ion-side-menu side="left">
+				我是左边
+			</ion-side-menu>
+
+			<ion-side-menu-content>
+				
+			</ion-side-menu-content>
+
+			<!-- Right menu -->
+			<ion-side-menu side="right">
+				我是右边
+			</ion-side-menu>
+
+		</ion-side-menus>
+	</body>
+
+</html>
+<script type="text/javascript">
+	function ContentController($scope, $ionicSideMenuDelegate) {
+  $scope.toggleLeft = function() {
+    $ionicSideMenuDelegate.toggleLeft();
+  };
+}
+</script>

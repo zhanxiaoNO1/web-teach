@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/ionic.min.css" />
+		<script src="js/ionic.bundle.min.js"></script>
+	</head>
+	<body ng-app="app" ng-controller="con">
+		
+				<!--<ion-nav-view></ion-nav-view>-->
+				<ion-side-menus>
+			<ion-side-menu-content>
+				<div ng-click="sheet()" class="button">actionsheet</div>
+				<div ng-click="showPopup()" class="button">showPopup</div>
+				<div ng-click="modal()" class="button">modal</div>
+				
+				<div ng-click="ope()" class="button ion-leaf">left</div>
+			</ion-side-menu-content>
+			
+			
+			
+			<ion-side-menu side="left">
+				左侧栏
+				<div menu-toggle="left" class="button ion-home">left</div>
+			</ion-side-menu>
+			
+			
+			
+			<ion-side-menu side="right">
+				右侧栏
+				<div menu-toggle="right" style="float:right" class="button ion-home">right</div>
+			</ion-side-menu>			
+		</ion-side-menus>
+		
+		
+		
+		
+
+	</body>
+</html>
+<script>
+	angular.module("app",["ionic"])
+	.controller("con",function($scope,$ionicSideMenuDelegate,$ionicActionSheet)
+{
+		$scope.ope=function(){
+			$ionicSideMenuDelegate.toggleLeft()
+		}
+		
+		
+		$scope.sheet=function(){
+			$ionicActionSheet.show({
+				buttons:[{
+					text:"<b>share</b>this"
+				},{
+					text:"move"
+				}				
+				],
+				destructiveText:"Delete",
+				titleText:"aa",
+				cancelText:'Cancel',
+				cancel:function(){
+					
+				},
+				buttonClicked:function(){
+					return true;
+				}
+			})
+		}
+		
+	})
+	
+</script>
