@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/ionic.min.css" />
+		<script src="js/ionic.bundle.min.js"></script>
+		<style type="text/css">
+			/*ion-content{
+				width: 100%;
+				height: 100%;
+			}
+			ion-refresher{
+				width: 100%;
+				height: 100%;
+			}
+			.box{
+				width: 100%;
+				height: 100%;
+			}*/
+		</style>
+	</head>
+	<body ng-app="app" ng-controller="con" ng-init="items=[2,4,5,6]">
+		
+		
+		<ion-header-bar>
+			<div class="title">header</div>
+		</ion-header-bar> 
+		
+		<ion-content>
+			
+			<ion-slide-box auto-play="true" show-pager="true" does-continue="true">
+			<ion-slide>
+				<div class="box"><img src="img/Ncontact1.jpg" /></div>
+			</ion-slide>
+			<ion-slide>
+				<div class="box"><img src="img/Ncontact1.jpg" /></div>
+			</ion-slide>
+			<ion-slide>
+			<div class="box"><img src="img/Ncontact1.jpg" /></div></ion-slide>
+			<ion-slide>
+				<div class="box"><img src="img/Ncontact1.jpg" /></div>
+			</ion-slide>
+			
+		</ion-slide-box>
+			
+			
+			
+			<ion-list>
+				<ion-item ng-repeat="item in items" ng-bind="item.name">{{item}}</ion-item>
+			</ion-list>
+			
+			<ion-refresher pulling-text="pull to fresh.." pulling-icon="ion-leaf" on-refresh="doRefresh()"></ion-refresher>
+					
+			<ion-infinite-scroll immediate-check="false" on-infinite="bb()" distance="40%"></ion-infinite-scroll>
+		</ion-content>
+		
+		
+		
+	</body>
+</html>
+<script>
+	angular.module("app",["ionic"])
+	.controller("con",function($scope){
+		$scope.doRefresh=function(){
+			$scope.items.push(12)
+//			$scope.items={
+//				"name":"html"
+//			},{
+//				"name":"css"
+//			},{
+//				"name":"js"
+//			}
+			
+			$scope.$broadcast("scroll.refreshComplete")
+		}
+		$scope.bb=function(){
+			var ss=[12,12,23];
+			$scope.items=$scope.items.concat(ss);
+			$scope.$broadcast("$scroll.infiniteScrollComplete")
+		}
+	})
+</script>
