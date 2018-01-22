@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title></title>
+		<link rel="manifest" href="manifest.json">
+		<link rel="stylesheet" type="text/css" href="lib/ionic/css/ionic.css" />
+		<script src="lib/ionic/js/ionic.bundle.js"></script>
+	</head>
+
+	<body ng-app="app" ng-controller="ctr">
+		<ion-side-menus>
+			<ion-side-menu-content drag-content="false">
+				<div ng-click="ope()" class="button ion-home">
+					left
+				</div>
+				<div menu-toggle="right" style="float:right" class="button ion-home">
+					right
+				</div>
+				<div ng-click="sheet()" class="button">
+					actionsheet
+				</div>
+				<div ng-click="showPopup()" class="button">
+					showPopup
+				</div>
+				<div ng-click="openModal()" class="button">
+					modal
+				</div>
+			</ion-side-menu-content>
+			<ion-side-menu side="left">
+				我是左侧边栏
+				<div menu-close="left" class="button ion-home">
+					left
+				</div>
+			</ion-side-menu>
+
+			<ion-side-menu side="right">
+				我是右侧边栏
+				<div menu-close="right" class="button ion-home">
+					right
+				</div>
+			</ion-side-menu>
+		</ion-side-menus>
+	</body>
+	<script id="a.html" type="text/ng-template">
+		<ion-modal-view>
+			<ion-header-bar>
+				<input type="text" value="" placeholder="aaa">
+			</ion-header-bar>
+			<ion-content>
+				<button class="button" ng-click="closeModal()">close</button>
+			</ion-content>
+
+		</ion-modal-view>
+	</script>
+
+	<script>
+		angular.module("app", ["ionic"])
+			.controller("ctr", function($scope, $ionicModal, $ionicPopup, $timeout, $ionicSideMenuDelegate,
+				$ionicActionSheet) {
+				$scope.ope = function() {
+
+					$ionicSideMenuDelegate.toggleLeft();
+				}
+
+				$scope.sheet = function() {
+
+					var she = $ionicActionSheet.show({
+						buttons: [{
+							text: '<b>Share</b> This'
+						}, {
+							text: 'Move'
+						}],
+						destructiveText: 'Delete',
+						titleText: 'Modify your album',
+						cancelText: 'Cancel',
+						cancel: function() {
+							// add cancel code..
+							// alert(1)
+						},
+						buttonClicked: function(index) {
+							console.log(index);
+							return false
+						}
+					})
+
+					$timeout(function() {
+						she();
+					}, 2000);
+
+				}
+
+				$scope.showPopup = function() {
+					$scope.data = {};
+
+					// An elaborate, custom popup
+					var myPopup = $ionicPopup.show({
+						template: '<input type="password" ng-model="data.wifi">',
+						title: 'Enter Wi-Fi Password',
+						subTitle: 'Please use normal things',
+						scope: $scope,
+						buttons: [{
+							text: 'Cancel'
+						}, {
+							text: '<b>Save</b>',
+							type: 'button-positive',
+							onTap: function(e) {
+								if(!$scope.data.wifi) {
+									//don't allow the user to close unless he enters wifi password
+									e.preventDefault();
+								} else {
+									return $scope.data.wifi;
+								}
+							}
+						}]
+					});
+
+					myPopup.then(function(res) {
+						console.log('Tapped!', res);
+					});
+
+					$timeout(function() {
+						myPopup.close()
+					}, 2000)
+				}
+
+				var str = '<h1>aaa</h1>'
+				$ionicModal.fromTemplate(str, {
+
+				})
+				$ionicModal.fromTemplateUrl("a.html", {
+					scope: $scope,
+					animation: "slide-in-up",
+					backdropClickToClose: true,
+					unfocusOnHide: false
+				}).then(function(modal) {
+					console.log(modal);
+
+					$scope.modal = modal;
+				});
+
+				$scope.openModal = function() {
+					$scope.modal.show();
+				};
+				$scope.closeModal = function() {
+					$scope.modal.hide();
+				};
+
+			})
+	</script>
+
+</html>

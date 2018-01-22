@@ -1,0 +1,61 @@
+<ion-view view-title="Account">
+	<body ng-app="app" ng-controller="ctr" ng-init="items=[1,2,3,4,5,6]">
+    <!-- 使用ionic js指令的话，除了引入js，要先声明一个模块，并注入ionic模块 -->
+    <!-- <div class="bar bar-header bar-positive">
+        <div class="title">dads</div>
+    </div> -->
+
+    <ion-header-bar align-title="left">
+        <!-- 标题还是要写在头部内容里，但可通过align-title属性控制位置 -->
+        <div class="title">dads</div>
+    </ion-header-bar>
+
+    <ion-content>
+
+
+
+
+        <ion-list>
+            <ion-item ng-repeat="item in items">{{item}}</ion-item>
+        </ion-list>
+
+        <ion-refresher pulling-text="下拉刷新..." pulling-icon="ion-leaf" on-refresh="doRefresh()">
+        </ion-refresher>
+            pulling-text：设置下拉时显示的文本内容
+            pulling-icon：设置下拉时显示的图标
+            *on-refresh：回调函数，刷新完成时触发，主要用来操作页面数据
+
+        <ion-infinite-scroll immediate-check="true" on-infinite="asd()"></ion-infinite-scroll>
+            immediate-check：是否在页面渲染时，直接检测是否触发加载事件
+            on-infinite：回调函数，上啦加载完成时触发，主要用来操作页面数据
+    </ion-content>
+
+
+    <script>
+        angular.module("app", ["ionic"])
+            .controller("ctr", function ($scope) {
+
+                // $scope.items = [1,2,4];
+                // ng-init="items=[1,2,3]"
+
+                $scope.doRefresh = function () {
+                    // alert(1);
+                    $scope.items.push(8)
+                    //刷新时要做的事情
+
+                    //最后要进行广播，通知控制器，刷新事件完成，可以加载
+                    $scope.$broadcast("scroll.refreshComplete")
+                    // $broadcast  从上向下传递，父向子
+                    // $emit    从下向上传递，子向父
+                }
+
+                $scope.asd = function () {
+                    var arr = [11,12,13,14,15,16,17,18]
+                    // 链接数组方法：concat
+                    $scope.items = $scope.items.concat(arr);
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
+                }
+            })
+    </script>
+</body>
+</ion-view>
