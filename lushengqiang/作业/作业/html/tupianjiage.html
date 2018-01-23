@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/angular.min.js"></script>
+		<style>
+		.wai{
+			width: 400px;
+			height: 500px;
+			border: 2px solid black;
+		}
+		ul	li{
+				float: left;list-style: none;
+			}
+		img{
+			width: 100px;
+			height: 100px;
+		}
+		li{
+			width: 150px;
+			height: 140px;
+			margin: 20px 10px;
+			padding: 20px 0;
+			border: 5px solid red;
+		}
+		h3{
+			border: 5px solid blue;
+			padding: 0 150px 0;
+		}	
+		</style>
+	</head>
+	<body>
+		<div class="wai">
+			<h3>商铺</h3>
+			<div ng-app="myApp" ng-controller="myCtrl">
+				<ul>
+					<li ng-repeat="x in names">
+						<img ng-src={{x.pic}} />
+						<br />
+						名称：{{x.name}}
+						<br />
+						价格：{{x.price}}
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	var app=angular.module("myApp",[])
+	app.controller("myCtrl",function($scope){
+		$scope.names=[{
+			pic:"../img/4.jpg",
+			name:"商品1",
+			price:11},
+			{
+			pic:"../img/3.jpg",
+			name:"商品2",
+			price:22},
+			{
+			pic:"../img/2.jpg",
+			name:"商品3",
+			price:33},
+		]
+	})
+</script>
