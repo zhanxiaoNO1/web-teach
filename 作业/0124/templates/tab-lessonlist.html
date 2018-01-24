@@ -1,0 +1,43 @@
+
+<!--<ion-view>
+	
+	<ion-content>
+	
+   <button ng-click="onTap1()" >课程列表</button>
+   <button ng-click="onTap2()" >价格</button>
+  </ion-content>
+</ion-view>-->
+
+<ion-view view-title="Account" hide-nav-bar="true">
+	<ion-content>
+		<div class="item item-input-inset" style="width:100%">
+			<label class="item-input-wrapper">
+			<input type="text" placeholder="Search" ng-keyup="myKeyup($event)" />
+    </label>
+			<button class="button button-small icon ion-search" ng-click="doSearch()"></button>
+
+		</div>
+		<div style="width: 100%;margin-left:10%;">
+			<button class="button" style="width: 40%;" ng-style="{color:button1}" on-tap="onTap1()">课程列表<span class="icon ion-ios-arrow-down"></span></button>
+			<button class="button" style="width: 40%;" ng-style="{color:button2}" on-tap="onTap2()">价格<span class="icon ion-ios-arrow-down"></span></button>
+		</div>
+		<div class="box" style="float: left" ng-repeat="x in listcardtitle" ng-hide="ctrtru1">
+					<span class="button card" style="margin-left:15px">{{x.title}}</span>
+		</div>
+		<div class="box" style="float: left" ng-repeat="x in listcardtitle" ng-hide="ctrtru2">
+					<span class="button card" style="margin-left:15px">{{x.sysId	}}</span>
+		</div>
+		
+		<div class="list" ng-repeat="kkk in arrs" style="clear:both">
+			<div class="item item-avatar" >
+				<img ng-src="{{kkk.img}}"/>
+				<p>{{kkk.name}}</p>
+				<p>{{kkk.price}}</p>
+			</div>
+		
+		</div>
+		
+	</ion-content>
+</ion-view>
+
+
