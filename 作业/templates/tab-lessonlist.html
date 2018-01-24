@@ -1,17 +1,45 @@
-<ion-view view-title="Dashboard">
-  <ion-content class="padding">
-    <h2>Welcome to Ionic</h2>
-    <p>
-    This is the Ionic starter for tabs-based apps. For other starters and ready-made templates, check out the <a href="http://market.ionic.io/starters" target="_blank">Ionic Market</a>.
-    </p>
-    <p>
-      To edit the content of each tab, edit the corresponding template file in <code>www/templates/</code>. This template is <code>www/templates/tab-dash.html</code>
-    </p>
-    <p>
-    If you need help with your app, join the Ionic Community on the <a href="http://forum.ionicframework.com" target="_blank">Ionic Forum</a>. Make sure to <a href="http://twitter.com/ionicframework" target="_blank">follow us</a> on Twitter to get important updates and announcements for Ionic developers.
-    </p>
-    <p>
-      <b>Psst!</b> - Try <a href="http://view.ionic.io/">Ionic View</a> to easily share and test your app with clients and co-workers.
-    </p>
-  </ion-content>
+<ion-view view-title="Chats" hide-nav-bar="true">
+		<ion-header-bar class="item-input-inset">
+		<label class="item-input-wrapper">
+			  <i class="icon ion-ios-search placeholder-icon"></i>
+        <input type="text" placeholder="请输入搜索词" >
+    </label>
+	</ion-header-bar>
+
+	<ion-content>
+		<ion-list>
+			<div class="item">
+			<div style="width: 45%;float: left;text-align: center;" ng-click="aa()" ng-style="myobj">
+				课程列表
+				<i class=" ion-chevron-down"></i>
+			</div>
+			<div style="width: 10%;float:left;text-align: center;" >
+				|
+			</div>
+			<div style="width: 45%;float: left;text-align: center;" ng-click="bb()" ng-style="myojj">
+				价格
+				<i class=" ion-chevron-down"></i>
+			</div>
+		</div>
+			<div class="item item-body" ng-show="cccc">
+				<div class="row" ng-repeat="x in lessons">
+					<div class="col col-25" ng-repeat="y in x">
+						<button style="width: 1.5rem;height: 1rem;">{{y.title}}</button>
+					</div>
+				</div>
+			</div>
+			<div class="item" ng-repeat="z in datas" ng-show="dddd">
+				{{z}}
+			</div>
+		</ion-list>
+		<div class="list card">
+			<div class="item" ng-repeat="x in dataq">
+					<img ng-src="{{x.img}}" style="height: 3.7rem; width:70%;float: left;"/>
+					<div style="float: left;margin: 70px 0px 0 40px;">
+						<div>{{x.name}}</div>
+						<div>{{x.price}}</div>
+					</div>
+			</div>
+		</div>
+	</ion-content>
 </ion-view>
