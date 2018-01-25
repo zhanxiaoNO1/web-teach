@@ -1,0 +1,43 @@
+<ion-view view-title="登录" style="background: url(img/person_01.png);">
+	<style>
+		.clear::before,.clear::after{
+			content: "";
+			height: 0;
+			line-height: 0;
+			visibility: hidden;
+			display: block;
+			clear: both;
+		}
+	</style>
+	<ion-content>
+<!-------------------------------------------->
+		<div>
+<!-------------图片--------------->
+			<div style="width: 100%;">
+				<img src="img/ionic.png" style="width: 30%;margin:5em 35% 0;"/>
+			</div>
+<!----------用户名-密码------------>
+			<div style="width: 90%;margin: 1em 5%;" class="clear">
+				<laber>
+					<input class="col col-100" style="float: left;height: 3em;" placeholder="用户名"></input>
+					<input class="col col-100" style="float: left;height: 3em;" style="float: left;" placeholder="密码"></input>
+				</laber>
+			</div>
+<!-------------登录--------------->
+			<div style="width: 95%;margin: 1em 2.5%;">
+				<div class="button button-calm col col-100">
+					登录
+				</div>
+			</div>
+		</div>
+<!---------注册-忘记密码----------->
+		<div style="width: 100%;">
+			<a href="#/tab/denglu" style="float: left;text-decoration: none;color: #000;">
+				注册
+			</a>
+			<a href="#/tab/wangle" style="float: right;text-decoration: none;color: #000;">
+				忘记密码
+			</a>
+		</div>
+	</ion-content>
+</ion-view>
