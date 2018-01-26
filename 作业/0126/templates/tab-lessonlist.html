@@ -1,0 +1,48 @@
+
+<ion-view>
+	
+
+
+<ion-view view-title="Account" hide-nav-bar="true">
+	<ion-content>
+		<div class="item item-input-inset" style="width:100%">
+			<label class="item-input-wrapper">
+			 <input type="search" placeholder="请输入搜索词" ng-model="searchInputText" ng-keyup="myKeyup($event)">
+    </label>
+			<button class="button button-small icon ion-search" ng-click="doSearch()"></button>
+
+		</div>
+		<div style="width: 100%;margin-left:10%;">
+			<button class="button" style="width: 40%;" ng-style="{color:button1}" on-tap="onTap1()">课程列表<span class="icon ion-ios-arrow-down" ng-class="{'ion-ios-arrow-up':aup}"></span></button>
+			<button class="button" style="width: 40%;" ng-style="{color:button2}" on-tap="onTap2()">价格<span class="icon ion-ios-arrow-down" ng-class="{'ion-ios-arrow-up':bup}"></span></button>
+		</div>
+		<div class="box" ng-repeat="x in listcardtitle" ng-hide="ctrtru1">
+					<span class="button card" style="margin-left:15px;float: left">{{x.title}}</span>
+		</div>
+		<div class="box" style="width:100%;height:auto" ng-repeat="x in pricetitle" ng-hide="ctrtru2">
+					<span class="button card button-full">{{x.pricename}}</span>
+		</div>
+
+		 <!--<ion-refresher pulling-text="释放立即刷新" on-refresh="doRefresh()"></ion-refresher>--> 
+
+
+    <div class="content  ionic-pseudo" style="clear:both">
+      <div class="list">
+        <ul>
+          <li class="item item-thumbnail-left" ng-repeat="list in lists" ng-click="tz_study(list.ID)">
+            <img ng-src="{{URLAdmin +list.Cpic}}" style="height: auto;">
+            <h2>{{list.Cname}}</h2>
+            <p>{{list.Cprice}}</p>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+
+    <ion-infinite-scroll on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+		
+		
+	</ion-content>
+</ion-view>
+
+
