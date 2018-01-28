@@ -75,15 +75,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 	
-	/*.state('tab.asd',{
-		url:'/asd',
+	.state('tab.firstEnter',{
+		url:'/firstEnter',
 		views:{
 			'tab-home':{
-				templateUrl:'templates/tab-asd.html',
-				controller:'AsdCtrl'
+				templateUrl:'templates/tab-firstEnter.html',
+				controller:'FirstEnterCtrl'
 			}
 		}
-	})*/
+	})
 	
   .state('tab.lessonlist', {
       url: '/lessonlist',
@@ -112,7 +112,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'PersonalCtrl'
       }
     }
-  });
+  })
+
+	.state('tab.denglu', {
+		url: '/denglu',
+		views: {
+			'tab-personal': {
+				templateUrl: 'templates/tab-personal-denglu.html',
+				controller: 'DengluCtrl'
+			}
+		}
+	})
+	
+	.state('tab.wangle', {
+		url: '/wangle',
+		views: {
+			'tab-personal': {
+				templateUrl: 'templates/tab-personal-wangle.html',
+				controller: 'WangleCtrl'
+			}
+		}
+	});
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');
