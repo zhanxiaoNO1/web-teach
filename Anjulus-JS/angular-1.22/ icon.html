@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link type="text/css" href="css/ionic.min.css" />
+		<script src="js/ionic.bundle.min.js"></script>
+	</head>
+	<body ng-app="app" ng-controller="ctrl">
+		<ion-header></ion-header>
+		<ion-content>
+        <ion-list>
+        	<ion-item ng-repeat="item in items">{{item}}</ion-item>
+        </ion-list>
+        <ion-refresher pulling-text="来刷我呀"  pulling-icon="ion-leaf" on-refresh="doRefresh()">
+        	
+        </ion-refresher>
+        <ion-infinite-scroll immediate-check="true" on-infinite="asd()">
+        	
+        </ion-infinite-scroll>	
+		</ion-content>
+        <ion-footer></ion-footer>
+		<script>
+		var app = angular.module("app",["ionic"]);
+		app.controller("ctrl",function($scope){
+			$scope.items=[1,2,3,4,5,6]
+			$scope.doRefresh=function(){
+				$scope.items.push(6)
+			}
+			$scope.$broadcast("scroll.refreshComplete")
+		})
+		</script>
+		
+	</body>
+</html>

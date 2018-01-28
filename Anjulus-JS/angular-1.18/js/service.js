@@ -1,0 +1,24 @@
+app.controller("Ctrl",function($scope){
+			$scope.names=[
+			   {
+				   "a":"img/q1.jpg",
+			       "b":"核桃",
+			       "c":"998"
+			   },
+			   {
+			   	   "a":"img/q3.jpg",
+			       "b":"大核桃",
+			       "c":"1998"
+			   },
+			   {
+			   	   "a":"img/q4.jpg",
+			       "b":"新疆核桃",
+			       "c":"899"
+			   },
+			   {
+			   	   "a":"img/q7.jpg",
+			       "b":"陕西核桃",
+			       "c":"999"
+			   }
+			]
+		})

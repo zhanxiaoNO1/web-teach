@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="myapp" ng-controller="ctrol">
+		<input type="number" ng-model="num"/>
+		<input type="button" ng-click="add()" value="click me"/>
+		<div>现在的名字：{{namew}}</div>
+		<input type="radio" ng-model="namew"  name="username" value="jack"/>jack
+		<input type="radio" ng-model="namew" name="username"  value="kobe"/>kobe
+		<input type="radio" ng-model="namew" name="username"  value="brouce"/>brouce
+		<p>
+			check:{{status}}
+			<input type="checkbox" ng-model="status" />
+		</p>
+		<script>
+		    var app = angular.module("myapp",[]);
+			app.controller("ctrol",function($scope){
+				
+				$scope.add = function(){
+					alert($scope.num+1)
+				}
+				
+				
+			})
+			
+		</script>
+		
+		
+	</body>
+</html>

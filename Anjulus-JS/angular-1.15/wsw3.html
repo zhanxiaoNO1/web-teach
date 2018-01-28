@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body ng-app="wsw" ng-controller="yyy">
+		<input type="number" ng-model="num1" />
+		<span>+</span>
+		<input type="number" ng-model="num2" /><br />
+		输入一：{{num1}}<br />
+		输入二：{{num2}}<br />
+		总和：{{num1+num2}}
+		<script>
+			var app = angular.module("wsw",[]);
+			app.controller("yyy",function($scope){
+				var love = 2
+				$scope.num1 = 3;
+				$scope.num2 = love;
+				
+			})
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myapp" ng-controller="myctrl">
+			<table>
+				<tr ng-repeat="(key,value) in users">
+					<td>{{key}}</td>
+					<td>{{value.age}}</td>
+					<td>{{value.sex}}</td>	
+				</tr>
+			</table>
+		</div>
+		<script>
+			var app = angular.module('myapp',[]);
+			app.controller('myctrl',function($scope){
+			$scope.users = {
+				"asw":{age:23,sex:"male"},
+				"yyy":{age:29,sex:"没毛病"},
+				"sbl":{age:33,sex:"animals"}
+			}
+		})
+		</script>
+	</body>
+</html>
