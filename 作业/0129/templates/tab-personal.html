@@ -1,0 +1,28 @@
+<ion-view view-title="Account" style="background: url(img/ben.png) no-repeat;background-size: 100% 100%;" hide-nav-bar="true">
+  <style type="text/css">
+  	.logo{
+  		width: 3rem;
+  		height: 3rem;
+  		margin: 0px auto;
+  	}
+  </style>
+  	<ion-content class="padding">
+  	<div class="row responsive-sm padding">
+  		<div class="col">
+  			<div style="height: 1.5rem;"></div>
+  			<div class="logo"><img src="img/perry.png" width="100%" height="auto"/></div>
+  			<div class="list list-inset">
+  				<label class="item item-input"><input type="text" ng-model="uname" placeholder="用户名"/></label>
+  				<label class="item item-input"><input type="password" ng-model="upwd" placeholder="密码"/></label>
+  			</div>
+  			<div class="loginButton"><button class="button button-block button-positive" ng-click="doLogin()"> 登录</button></div>
+  		</div>
+  		
+  		<div class="row">
+  			<div class="col-10"><a class="item" style="background:none;border: none;" href="#/tab/register">{{uname}}</a></div>
+  			<div class="col-10" style="text-align: right;padding-left:0px"><a class="item" style="background:none;border:none;" href="#/tab/forget">忘记</a></div>
+  		</div>
+  	</div>
+  	
+     </ion-content>
+</ion-view>
