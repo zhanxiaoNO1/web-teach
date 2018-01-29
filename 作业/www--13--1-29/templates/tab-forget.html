@@ -1,0 +1,27 @@
+<ion-view view-title="忘记密码"  style="background:url(img/register_bg.jpg) no-repeat; background-size:100% 100%;" hide-tabs="true">
+    <ion-content class="padding">
+  
+      <!--//页面内容添加在此处-->
+      <div class="row responsive-sm padding">
+        <div style="height:1rem;"></div>
+        <h1 style="text-align:center; color:#fff;  font-size:1rem;">忘记密码</h1>
+        <!--/*在这里继续添加内容*/-->
+  
+        <div class="list" >
+          <div class="list list-inset" style="opacity:0.5;">
+            <label class="item item-input"><input type="text" placeholder="用户名" ng-model="infor.name" required> </label>
+            <label class="item item-input"><input type="text" placeholder="手机号" ng-model="infor.phone"> </label>
+            <label class="item item-input"><input type="password" placeholder="密码" ng-model="infor.password"> </label>
+            <label class="item item-input"><input type="password" placeholder="再次输入密码" ng-model="infor.passwordt"> </label>
+          </div>
+          <div class="loginButton"><button class="button button-block button-positive" ng-click="forget(infor)"> 完成 </button>  </div>
+        </div>
+  
+  
+      </div>
+  
+  
+  
+    </ion-content>
+  </ion-view>
+  

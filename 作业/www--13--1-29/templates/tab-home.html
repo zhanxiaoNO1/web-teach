@@ -1,0 +1,121 @@
+<ion-view view-title="Home" hide-nav-bar="true">
+ <style>
+    .box {
+      width: 100%;
+      height: 16rem;
+    }
+
+    .box>img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .titleItm h2 {
+      float: left;
+    }
+
+    .more {
+      float: right;
+    }
+
+    a {
+      text-decoration: none;
+      color: #666;
+    }
+
+    .sy_img {
+      width: 100%;
+      height: 2.8rem;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .sy_img img {
+      height: 2.8rem;
+    }
+
+    .item-thumbnail-left>img:first-child {
+      max-width: 100px;
+    }
+
+    .item-thumbnail-left {
+      padding-left: 120px;
+    }
+
+  </style>
+	
+	<ion-header-bar>
+
+		<div class="item item-input-inset" style="width: 100%;">
+			<div style="width: 1rem; height: 1rem; margin-right: 0.3rem;" >
+				<img style="border-radius: 50%;" src="../img/timg3.jpg" width="100%" height="auto" />
+			</div>
+			<lable class="item-input-wrapper">
+				<input type="text" placeholder="Serach" ng-model="serchText" />
+			</lable>
+			<button class="button button-small icon ion-search" ng-click="doSearch()"></button>
+		</div>
+	</ion-header-bar>
+
+	<ion-content >
+		
+		<ion-slide-box auto-play="true" does-continue="true" slide-interval=2000 show-pager="true" delegate-handle="slideimgs">
+			<ion-slide ng-repeat="lunbopic in lunbopics">
+				<div class="box" >
+					<img ng-src="{{URLAdmin+lunbopic.Cpic}}" />
+				</div>
+			</ion-slide>
+		</ion-slide-box>
+		<div class="item item-button-right">
+			好评榜
+			<button class="button button-clear">
+				<a>更多</a>
+ 				<a class="ion icon-right ion-chevron-right button-calm"></a>
+			<tton>
+		</div>
+
+		<div class="row" style="width: 100%;" ng-repeat="y in goodList">
+			<div class="col col-50" style="float: left;" ng-repeat="x in y">
+				<div>
+					<img src="{{URLAdmin+x.Cpic}}" style="width: 100%;height: 8em;" />
+				</div>
+				<h3>{{x.Cdescribe}}</h3>
+				<p>{{x.Cname}}</p>
+			</div>
+		</div>
+
+		<div class="item item-button-right">
+			最新课程
+			<button class="button button-clear">
+				<a>更多</a>
+ 				<a class="ion icon-right ion-chevron-right button-calm"></a>
+			<tton>
+		</div>
+
+		<div class="row" style="width: 100%;" ng-repeat="y in newList">
+			<div class="col col-50" style="float: left;" ng-repeat="x in y">
+				<div>
+					<img src="{{URLAdmin+x.Cpic}}" style="width: 100%;height: 8em;" />
+				</div>
+				<h3>{{x.Cdescribe}}</h3>
+				<p>{{x.Cname}}</p>
+			</div>
+		</div>
+
+		<div class="item item-button-right">
+			猜你喜欢
+		</div>
+
+		<div class="list">
+			<div class="item" ng-repeat="x in chooseList">
+				<img src="{{URLAdmin+x.Cpic}}" style="width: 50%;height: 8em;float: left;" />
+				<div style="float: left;">
+					<h2>{{x.Cdescribe}}</h2>
+					<p>{{x.Cname}}</p>
+				</div>
+			</div>
+
+		
+	</ion-content>
+
+</ion-view>
