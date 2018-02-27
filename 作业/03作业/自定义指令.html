@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{
+				width:100px;
+				height:100px;
+				background: red;
+			}
+		</style>
+		<script src="js/angular.min.js"></script>
+		<script src='js/angular-route.js'></script>
+	</head>
+	<body ng-app="app" ng-controller="ctrl">
+		<div wlf></div>
+		<wlf></wlf>
+		<div wlf id="b" data-laba="true"></div>
+		<div ng-class='{"red":$root.ss}'></div>
+	</body>
+	<script>
+		angular.module("app",[])
+		.controller("ctrl",function(){
+			
+		})
+		.directive("wlf",function($rootScope){
+			return{
+				template:"wtt ddd",
+				//templateUrl:"路径"
+				restrict:"E C M A",
+				//link是为自定义指令设置一个方法,有三个参数
+				link:function(scope,el,attrs){
+					/*console.log(el);
+					console.log(attrs);
+					console.log(scope);*/
+					//attrs.wlf即访问wlf的所有属性
+					if(attrs.wlf=="false"){
+						$rootScope.ss=false;
+					}else{
+						$rootScope.ss=true
+					}
+				}
+			}
+		})
+	</script>
+</html>

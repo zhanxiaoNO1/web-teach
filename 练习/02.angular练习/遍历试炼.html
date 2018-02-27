@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controller.js"></script>
+		<script src="js/factory.js"></script>
+	</head>
+	<body ng-app="myapp" ng-controller="Ctrl">
+		<ul ng-repeat="x in num">
+		   <li>{{x}}</li>
+		</ul>
+	</body>
+</html>
+
+
+
+<!--
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("welcome.htm").then(function (response) {
+        $scope.myWelcome = response.data;
+    });
+});-->

@@ -38,7 +38,7 @@
 			<div class="top"><h1>旅游景点</h1></div>
 			<ul ng-app="myApp" ng-controller="Ctrl">
 				<li ng-repeat="x in names">
-					<img class="imgs" src="{{x.a}}">
+					<img class="imgs" ng-src="{{x.a}}">
 					<span>名称：{{x.b}}</span><br />
 					<span>价格：￥{{x.c}}</span>
 				</li>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src='js/angular.min.js'></script>
+	</head>
+	<body ng-app="myApp">
+		
+		<!--自定义写法
+		<runoob-directive></runoob-directive>
+		<script>
+		var app=angular.module("myApp",[]);
+		app.directive("runoobDirective",function(){
+			return{
+				template:"<h1>你在家睡大觉</h1>"
+			};
+		})-->
+		
+	<script>	
+		var app = angular.module("myApp", []);
+		app.directive("runoobDirective", function() {
+			    return {
+			        restrict : "A",
+			        template : "<h1>自定义指令!</h1>"
+			    };
+			});
+	</script>
+	
+	<!--<script>
+		angular.module('app', [])
+		.directive('myDirective', function() {
+		    return {
+			    restrict: String,                
+			    priority: Number,
+			    terminal: Boolean,
+			    template: String or Template Function:
+			    function(tElement, tAttrs) {...},
+			    templateUrl: String,
+			    replace: Boolean or String,
+			    scope: Boolean or Object,
+			    transclude: Boolean,
+			    controller: String or
+			    function(scope, element, attrs, transclude, otherInjectables) { ... },
+			    controllerAs: String,
+			    require: String,
+			    link: function(scope, iElement, iAttrs) { ... },
+			    compile: // 返回一个对象或连接函数，如下所示：
+			    function(tElement, tAttrs, transclude) {
+			        return {
+			            pre: function(scope, iElement, iAttrs, controller) { ... },
+			            post: function(scope, iElement, iAttrs, controller) { ... }
+			           }
+			        return function postLink(...) { ... }
+			        }
+			    };
+			 });
+	</script>
+	-->
+	</body>
+	
+</html>

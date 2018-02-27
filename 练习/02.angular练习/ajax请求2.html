@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="Ctrl"> 
+			<div>
+				{{res}}
+			</div>
+		</div>
+		
+	</body>
+	<script>
+		/*var app=angular.module("myApp",["jApp"])
+		.controller("Ctrl",function($scope,con){
+			$scope.res=con.a;
+		})
+		var ccc=angular.module("jApp",[])
+		.factory("con",function(){
+			return{
+				a:"this is date"
+			}
+		})*/
+		
+		
+		var app=angular.module("myApp",["JApp"])
+		.controller("Ctrl",function($scope,$http){
+			$scope.res=$http.a;
+			//$http.a是访问下面的a
+		});
+		angular.module("JApp",[])
+		.factory("$http",function(){
+			return{
+				a:"this is date"
+			}
+		})
+		
+		
+	</script>
+</html>

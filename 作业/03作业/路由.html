@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.js"></script>
+	</head>
+	<body ng-app="myapp">
+		<div>
+			<a href="#/home">点啊</a>
+			<a href="#/">回家糌粑</a>
+		</div>
+		<div ng-view></div>
+	</body>
+	<script type="text/ng-template" id="a.html">
+		<div>111111111</div>		
+	</script>
+	<script type="text/ng-template" id="b.html">
+		<div>222222222</div>
+	</script>
+	<script>
+		angular.module("myapp",["ngRoute"])
+		.controller("ctrl",function($scope){
+			
+		})
+		.config(function ($routeProvider) {    
+			$routeProvider     
+			.when("/",{  
+				controller:"ctrl", 
+				templateUrl:"a.html"
+				//显示的内容     
+			})
+			.when("/home",{  
+					controller:"ctrl",        
+					templateUrl:"b.html"    
+			})   
+		});
+
+	</script>
+</html>

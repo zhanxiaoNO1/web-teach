@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myapp" ng-controller="ctrl">
+			<div ng-repeat="x in num"></div>
+		</div>
+	</body>
+	<script>
+		/*var app=angular.module("myapp",[])
+		.controller("ctrl",function($scope,$http){
+			var promise=$http.get("作业.html")
+			.success(
+				function(data,status){
+					console.log(data)
+				})
+			.error(function(data,status){
+				document.write("回家吃饭了")
+			})
+		})*/
+		
+		var app=angular.module("myapp",[])
+		.controller("ctrl",function($scope,$http){
+			var promise=$http.get("new_file.html")
+			.then(function(res){
+				console.log("res")
+			},function(res){
+				console.log(res)
+			})
+		})
+	</script>
+</html>

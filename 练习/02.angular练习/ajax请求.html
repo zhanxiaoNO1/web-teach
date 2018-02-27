@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html> 
+	<head>   
+		<meta charset="utf-8">   
+		<meta name="viewport" content="width=device-width,user-scalable=no, initial-scale=1">   <link rel="stylesheet" type="text/css" href="" />   
+		<title>angularjs实现 ajax</title> 
+		<script type="text/javascript" src="./js/angular.min.js" charset="utf-8"></script>   
+		<script type="text/javascript" src="ajax.js" charset="utf-8"></script> 
+	</head> 
+	<body ng-app="HelloAjax">   
+		<div ng-controller="HelloAjax">     
+			<form>       
+				<input type="text" ng-model="username" />       
+				<input type="text" ng-model="email" />     
+			</form>     
+			<table>      
+				<tr ng-repeat="user in users">        
+					<td>{{user.username}}</td>        
+					<td>{{user.email}}</td>      
+				</tr>     
+			</table>     
+				<button ng-click="get_more();">get more</button>   
+		</div> 
+	</body> 
+		<script>
+			var myModule = angular.module("HelloAjax",[]); 
+			myModule.controller("HelloAjax",["$scope","$http",function HelloAjax($scope,$http){   
+				 /*$scope.users=[
+				 * {'username':"zhangsan","email":"zs@11.com"},     
+				 * {'username':"zhangsan2","email":"zs@22.com"},     
+				 * {'username':"zhangsan3","email":"zs@33.com"}];* */    
+				  $scope.get_more = function(){     
+				  	$http({         
+				  		method: "POST",
+				  		url: "./ajax.php",         
+				  		data:{'username':$scope.username,            
+				  		'email':$scope.email           
+				  		}       
+				  	}).       
+				  	success(function(data, status) {        
+				  		//$scope.status = status;         
+				  		$scope.users = data;       }).       
+				  		error(function(data, status) {        
+				  			/*$scope.data = data || "Request failed";        
+				  			$scope.status = status; */     
+				  		});    
+				    } 
+			    }]);
+
+		</script>
+</html> 

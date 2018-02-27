@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="Ctrl">
+			{{dd}}
+			<div ng-bind="cc"></div>
+			{{aa}}
+		</div>
+	</body>
+	<script>
+		angular.module("myApp1",[])
+		.factory("cc",function(){
+			return{
+				"a":["伦敦","纽约","莱昂纳多"]
+			}
+		})
+		.service("dd",function(nn){
+			this.a=nn
+		})
+		.config(function($provide){
+			$provide.provider("aa",function(){
+				this.$get=function(yy){
+					return{
+						fun:function(){
+							b=yy
+						}
+					}
+				}
+			})
+		})
+		.value("yy","")
+		.constant("nn","")
+		
+		angular.module("myApp",["myApp1"])
+			.controller("Ctrl",function($scope,dd,cc){
+		    	$scope.cc=cc.a
+		    	$scope.dd=dd.a
+		    })
+	</script>
+</html>

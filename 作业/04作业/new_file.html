@@ -6,28 +6,10 @@
 		<link rel="stylesheet" href="css/ionic.min.css" />
 		<script src="js/ionic.bundle.min.js"></script>
 		<script src='js/jquery-1.12.4.js'></script>
-		<script>
-		 	console.log($('.two'));
-		 	console.log($(".one"));
-		 	$('.two').on("click",function(){
-		 		console.log(1);
-		 		$('.one').css("display","none");
-		 		
-		 	})
-		 	
-		    angular.module('ionicApp', ['ionic'])
 		
-		    .controller('SlideController', function($scope) {
-		      
-		      $scope.myActiveSlide = 1;
-		      
-		    })
-		    
-		   
-	    </script>
 		<style>
-			.bigBox{
-				width:1800px;
+			.now{
+				/*width:1800px;*/
 				position: relative;
 			}
 			.one{
@@ -43,7 +25,8 @@
 			}
 			.pp>h2{
 				font-size:40px;
-				margin:55px 0 0 30px;
+				margin-top:65px;
+				margin-left:30px;
 			}
 			.one i{
 				font-size:70px;
@@ -60,7 +43,7 @@
 			}
 			.two{
 				position:absolute;
-				left:750px;
+				left:0;
 				top:0;
 			}
 			.two input{
@@ -78,7 +61,6 @@
 			.item-body>p{
 				font-size:30px;
 			}
-			
 			.slider {
 		      height: 200px;
 		    }
@@ -108,77 +90,203 @@
 			
 	</style>		
 	</head>
-	<body>
-		<div class="bigBox">
-			<div class="one">
-				<div class="item item-avatar item-thumbnail-left pp col-75" href="#">
-				    <img src="img/c3.png">
-				    <h2 style="padding-top:10px">翡翠在手，天下我有</h2>
-				</div>
-				<div class="item item-thumbnail-left col-75" href='#'>
-			    	<i class="icon ion-ribbon-b"></i>
-			    	<h1>开通会员</h1>
-			    </div>
-				<div class="item item-thumbnail-left col-75">
-					<i class="icon ion-tshirt-outline"></i>
-					<h1>个性装扮</h1>
-				</div>
-				<div class="item item-thumbnail-left col-75">
-					<i class="icon ion-lock-combination"></i>
-					<h1>我的文件</h1>
-				</div>
-				<div class="item item-thumbnail-left col-75">
-					<i class="icon ion-ios-home-outline"></i>
-					<h1>设置</h1>
-				</div>
-				<div class="item item-thumbnail-left col-75 hei"></div>
-			</div>
-			
-			<div class="two" id="two">
-				<div class="item item-avatar item-thumbnail-left href="#" style="height:150px;">
-				    <img src="img/c3.png">
-				    <label class="item item-input">
-					    <input type="text" placeholder="search"/>
-					</label>
+	<body ng-app="app" ng-controller="ctr">
+		    <ion-side-menus>
+				<ion-side-menu-content drag-content="false" class="now">
+		            <div ng-click="ope()" class="one col-75" style="float:left">
+		                <div class="item item-avatar item-thumbnail-left pp" href="#">
+							<img src="img/c3.png">
+							<h2>翡翠在手，天下我有</h2>
+						</div>
+						<div class="item item-thumbnail-left" href='#'>
+						    <i class="icon ion-ribbon-b"></i>
+						    <h1>开通会员</h1>
+						</div>
+						<div class="item item-thumbnail-left">
+							<i class="icon ion-tshirt-outline"></i>
+							<h1>个性装扮</h1>
+						</div>
+						<div class="item item-thumbnail-left">
+							<i class="icon ion-lock-combination"></i>
+							<h1>我的文件</h1>
+						</div>
+						<div class="item item-thumbnail-left">
+							<i class="icon ion-ios-home-outline"></i>
+							<h1>设置</h1>
+						</div>
+						<div class="item item-thumbnail-left hei"></div>
+					</div>
+		            
+		            <div menu-toggle="right" style="float:right" class="two">
+		            	<div class="item item-avatar item-thumbnail-left href="#" style="height:150px;">
+							<img src="img/c3.png">
+							<lable class="item item-input">
+								<input type="text" placeholder="search"/>
+							</lable>
+						</div>
+						
+						<div ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
+						    <ion-slide-box active-slide="myActiveSlide">
+								<ion-slide>
+								    <div class="box gre"></div>
+							    </ion-slide>
+								<ion-slide>
+								    <div class="box blu"></div>
+								</ion-slide>
+								<ion-slide>
+								    <div class="box dak"></div>
+								</ion-slide>
+							</ion-slide-box>
+						</div>	
+		            	
+						<div class="item item-body">
+							<img class="full-image" src="img/b2.jpg">
+							<p>javaScript是你的最爱吧，赶紧抱着书睡觉</p>
+							<p>
+							    <a href="#" class="subdued">1 喜欢</a>
+							    <a href="#" class="subdued">5 评论</a>
+							</p>
+						</div>
+							
+						<div class="item item-body">
+							<img class="full-image" src="img/b5.jpg">
+							<p>HTML5+CSS3是新版本的web前端知识</p>
+							<p>
+							    <a href="#" class="subdued">1 喜欢</a>
+							    <a href="#" class="subdued">5 评论</a>
+							</p>
+						</div>
+						<div class="item item-body">
+							<i class="icon ion-ios-home" style="font-size:80px;"></i>
+							<p>主页</p>
+						</div>
+            		</div>
 					
-				</div>
-			    <div ng-app="ionicApp" animation="slide-left-right-ios7" ng-controller="SlideController">
-			    	<ion-slide-box active-slide="myActiveSlide">
-				    <ion-slide>
-				        <div class="box gre"></div>
-				    </ion-slide>
-				    <ion-slide>
-				        <div class="box blu"></div>
-				    </ion-slide>
-				    <ion-slide>
-				        <div class="box dak"></div>
-				    </ion-slide>
-				  </ion-slide-box>
-			    </div>	
-				
-				<div class="item item-body">
-				    <img class="full-image" src="img/b2.jpg">
-				    <p>javaScript是你的最爱吧，赶紧抱着书睡觉</p>
-				    <p>
-				      <a href="#" class="subdued">1 喜欢</a>
-				      <a href="#" class="subdued">5 评论</a>
-				    </p>
-				</div>
-				
-				<div class="item item-body">
-				    <img class="full-image" src="img/b5.jpg">
-				    <p>HTML5+CSS3是最新版本的web前端知识</p>
-				    <p>
-				      <a href="#" class="subdued">1 喜欢</a>
-				      <a href="#" class="subdued">5 评论</a>
-				    </p>
-				</div>
-				<div class="item item-body">
-					<i class="icon ion-ios-home" style="font-size:80px;"></i>
-					<p>主页</p>
-				</div>
-			</div>
-		</div>
+				</ion-side-menu-content>
+				<ion-side-menu side="right">
+					
+				</ion-side-menu>
+		    </ion-side-menus>
+			
+			<script id="a.html" type="text/ng-template">
+		        <ion-modal-view>
+		            <ion-header-bar>
+		                <input type="text" value="" placeholder="aaa">
+		            </ion-header-bar>
+		            <ion-content>
+		                <button class="button" ng-click="closeModal()">close</button>
+		            </ion-content>
+		
+		        </ion-modal-view>
+		    </script>
+			
 	</body>
-	
+	<script>
+		 	angular.module('ionicApp', ['ionic'])
+		
+		    .controller('SlideController', function($scope) {
+		      
+		      $scope.myActiveSlide = 1;
+		      
+		    })
+		    
+		    
+		    angular.module("app", ["ionic"])
+            .controller("ctr", function ($scope, $ionicModal, $ionicPopup, $timeout, $ionicSideMenuDelegate,
+                $ionicActionSheet) {
+                $scope.ope = function () {
+                    //alert(1);
+
+                    $ionicSideMenuDelegate.toggleLeft();
+                }
+
+                $scope.sheet = function () {
+
+                    var she = $ionicActionSheet.show({
+                        buttons: [{
+                                text: '<b>Share</b> This'
+                            },
+                            {
+                                text: 'Move'
+                            }
+                        ],
+                        destructiveText: 'Delete',
+                        titleText: 'Modify your album',
+                        cancelText: 'Cancel',
+                        cancel: function () {
+                            // add cancel code..
+                            // alert(1)
+                        },
+                        buttonClicked: function (index) {
+                            console.log(index);
+                            return false
+                        }
+                    })
+
+                }
+
+                $scope.showPopup = function () {
+                    $scope.data = {};
+
+                    // An elaborate, custom popup
+                    var myPopup = $ionicPopup.show({
+                        template: '<input type="password" ng-model="data.wifi">',
+                        title: 'Enter Wi-Fi Password',
+                        subTitle: 'Please use normal things',
+                        scope: $scope,
+                        buttons: [{
+                                text: 'Cancel'
+                            },
+                            {
+                                text: '<b>Save</b>',
+                                type: 'button-positive',
+                                onTap: function (e) {
+                                    if (!$scope.data.wifi) {
+                                        //don't allow the user to close unless he enters wifi password
+                                        e.preventDefault();
+                                    } else {
+                                        return $scope.data.wifi;
+                                    }
+                                }
+                            }
+                        ]
+                    });
+
+                    myPopup.then(function (res) {
+                        //console.log('Tapped!', res);
+                    });
+
+                    $timeout(function () {
+                        myPopup.close()
+                    }, 2000)
+                }
+
+                var str = '<h1>aaa</h1>'
+                $ionicModal.fromTemplate(str,{
+
+                })
+                $ionicModal.fromTemplateUrl("a.html", {
+                    scope: $scope,
+                    animation: "slide-in-up",
+                    backdropClickToClose:true,
+                    unfocusOnHide:false
+                }).then(function (modal) {
+                    console.log(modal);
+                    
+                    $scope.modal = modal;
+                });
+
+                $scope.openModal = function () {
+                    $scope.modal.show();
+                };
+                $scope.closeModal = function () {
+                    $scope.modal.hide();
+                };
+
+
+
+
+            })
+		   
+	    </script>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/ionic.min.css" />
+		<script src='js/ionic.bundle.min.js'></script>
+	</head>
+	<body ng-app="app" ng-controller="ctrl" ng-init="names=[1,2,3,4]">
+		
+		<ion-content>
+			<ion-list>
+				<ion-item ng-repeat="x in names">{{x}}</ion-item>
+			</ion-list>
+				<ion-refrensh pulling-text="下拉加载" on-refresh="doRefresh" pulling-icon="ion-leaf">
+					
+				</ion-refrensh>
+				<!--<ion-infinite-scroll immediate-check="true" pulling-text="上拉刷新" on-infinite="asd()"  pulling-icon="ion-home">
+				
+				</ion-infinite-scroll>-->
+		</ion-content>
+	</body>
+	<script>
+		angular.module("app",["ionic"])
+		.controller("ctrl",function($scope){
+			$scope.names=[1,2,3,4];
+			//alert("下拉刷新");
+			$scope.names.push(8);
+			$scope.$broadcast("scroll.refreshComplete")
+		})
+		
+		/*angular.module("app",["ionic"])
+		.controller("ctrl",function($scope){
+			//$scope.names=[1,2,3,4]
+			var arr=[11,3,55,6];
+			alert("我又刷新了");
+			$scope.names=$scope.names.concat(arr);
+		    $scope.$broadcast("scroll.infiniteScrollComplete")
+		})*/
+	</script>
+</html>
