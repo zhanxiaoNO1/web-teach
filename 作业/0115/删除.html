@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/angular.min.js"></script>
+		
+	</head>
+
+	<body ng-app="myApp">
+    <h1>Hello Plunker!</h1>
+    <div ng-controller="myCtrl1">
+        <button ng-click="shareData('123')">send</button>
+    </div>
+    <div ng-controller="myCtrl2"></div>
+     <script>
+      angular.module('myApp',[])
+      .controller('myCtrl1',function($scope){
+        $scope.shareData=function(data){
+           $scope.myFunction(data) ;
+        }
+      })
+      .controller('myCtrl2',function($rootScope,$scope){
+        $rootScope.myFunction=function(data){
+          console.log(data);
+          console.log(typeof data)
+        }
+      });
+    </script>
+</body>
+</html>
+<script>
+//	function sort(elements){
+//		for(var a=0;a<elements.length-1;a++){
+//			for(var b=0;b<elements.length-1;b++){
+//				if(elements[b] > elements[b+1]){
+//					var tem = elements[b];
+//					elements[b] = elements[b+1];
+//					 elements[b+1]= tem;
+//				}
+//			}
+//		}	
+//	}
+//	
+//	var elements=[12,4,3,8,34,45]
+//	
+//	document.write("before:"+elements+"<br/>");
+//
+//	sort(elements);
+//	document.write("after:"+elements);
+
+</script>
